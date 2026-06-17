@@ -1,0 +1,1742 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ortopedia & Traumatologia — Guia Completo + Tratamentos</title>
+    <style>
+        /* ── BASE ── */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        :root {
+            --bg: #ffffff;
+            --bg2: #f7f7f5;
+            --bg3: #f0efeb;
+            --text: #1a1a18;
+            --text2: #5c5c58;
+            --text3: #8c8c88;
+            --border: rgba(0, 0, 0, 0.10);
+            --border2: rgba(0, 0, 0, 0.18);
+            --border3: rgba(0, 0, 0, 0.25);
+            --radius: 8px;
+            --radius-lg: 12px;
+            --blue: #185FA5;
+            --blue-bg: #E6F1FB;
+            --blue-text: #0C447C;
+            --green: #3B6D11;
+            --green-bg: #EAF3DE;
+            --green-text: #27500A;
+            --amber: #854F0B;
+            --amber-bg: #FAEEDA;
+            --amber-text: #633806;
+            --red: #A32D2D;
+            --red-bg: #FCEBEB;
+            --red-text: #791F1F;
+            --purple: #534AB7;
+            --purple-bg: #EEEDFE;
+            --purple-text: #3C3489;
+            --gray: #5F5E5A;
+            --gray-bg: #F1EFE8;
+            --gray-text: #444441;
+        }
+        @media(prefers-color-scheme:dark) {
+            :root {
+                --bg: #1e1e1c;
+                --bg2: #28281f;
+                --bg3: #323228;
+                --text: #f0efeb;
+                --text2: #a8a89e;
+                --text3: #6c6c68;
+                --border: rgba(255, 255, 255, 0.10);
+                --border2: rgba(255, 255, 255, 0.18);
+                --border3: rgba(255, 255, 255, 0.25);
+                --blue-bg: #0c2a4a;
+                --blue-text: #85B7EB;
+                --green-bg: #1a2e0a;
+                --green-text: #C0DD97;
+                --amber-bg: #2e1e0a;
+                --amber-text: #FAC775;
+                --red-bg: #2e0a0a;
+                --red-text: #F7C1C1;
+                --purple-bg: #1e1a3a;
+                --purple-text: #AFA9EC;
+                --gray-bg: #232320;
+                --gray-text: #D3D1C7;
+            }
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg3);
+            color: var(--text);
+            min-height: 100vh;
+        }
+        .app {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* ── SIDEBAR ── */
+        .sidebar {
+            width: 250px;
+            min-width: 250px;
+            background: var(--bg);
+            border-right: 0.5px solid var(--border);
+            padding: 1.5rem 0;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+        .sidebar-logo {
+            padding: 0 1.25rem 1.25rem;
+            border-bottom: 0.5px solid var(--border);
+            margin-bottom: .75rem;
+        }
+        .sidebar-logo h1 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.4;
+        }
+        .sidebar-logo p {
+            font-size: 12px;
+            color: var(--text3);
+            margin-top: 4px;
+        }
+        .nav-section {
+            padding: .5rem 1.25rem;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text3);
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            margin-top: 1rem;
+        }
+        .nav-item {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 8px 1.25rem;
+            font-size: 13px;
+            color: var(--text2);
+            background: none;
+            border: none;
+            cursor: pointer;
+            transition: all .12s;
+            border-left: 3px solid transparent;
+        }
+        .nav-item:hover {
+            color: var(--text);
+            background: var(--bg2);
+        }
+        .nav-item.active {
+            color: var(--blue);
+            background: var(--blue-bg);
+            border-left-color: var(--blue);
+            font-weight: 500;
+        }
+        .nav-item.trat {
+            border-left-color: var(--green);
+        }
+        .nav-item.trat.active {
+            color: var(--green);
+            background: var(--green-bg);
+            border-left-color: var(--green);
+        }
+
+        /* ── MAIN ── */
+        .main {
+            flex: 1;
+            overflow-y: auto;
+            padding: 2.5rem;
+        }
+        .page {
+            display: none;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .page.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(5px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ── TYPOGRAPHY ── */
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: .5rem;
+        }
+        .page-sub {
+            font-size: 14px;
+            color: var(--text3);
+            margin-bottom: 2rem;
+        }
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text);
+            margin: 2rem 0 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.5rem;
+        }
+        h3:first-of-type {
+            margin-top: 0;
+        }
+        h4 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text);
+            margin: 1rem 0 .5rem;
+        }
+        p,
+        li {
+            font-size: 14px;
+            color: var(--text2);
+            line-height: 1.6;
+            margin-bottom: .5rem;
+        }
+        ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* ── CARDS ── */
+        .card {
+            background: var(--bg);
+            border: 0.5px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+        }
+        .card-blue {
+            border-left: 4px solid var(--blue);
+            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+        }
+        .card-green {
+            border-left: 4px solid var(--green);
+            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+        }
+        .card-amber {
+            border-left: 4px solid var(--amber);
+            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+        }
+        .card-red {
+            border-left: 4px solid var(--red);
+            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+        }
+        .card-purple {
+            border-left: 4px solid var(--purple);
+            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+        }
+
+        /* ── GRIDS ── */
+        .grid2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .grid3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        /* ── BADGES ── */
+        .badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin: 0 4px 4px 0;
+        }
+        .badge-blue {
+            background: var(--blue-bg);
+            color: var(--blue-text);
+        }
+        .badge-green {
+            background: var(--green-bg);
+            color: var(--green-text);
+        }
+        .badge-amber {
+            background: var(--amber-bg);
+            color: var(--amber-text);
+        }
+        .badge-red {
+            background: var(--red-bg);
+            color: var(--red-text);
+        }
+        .badge-purple {
+            background: var(--purple-bg);
+            color: var(--purple-text);
+        }
+        .badge-gray {
+            background: var(--gray-bg);
+            color: var(--gray-text);
+        }
+
+        /* tratamento badges */
+        .tx-cons {
+            background: var(--blue-bg);
+            color: var(--blue-text);
+            border: 1px solid var(--blue);
+        }
+        .tx-cir {
+            background: var(--red-bg);
+            color: var(--red-text);
+            border: 1px solid var(--red);
+        }
+        .tx-prog {
+            background: var(--green-bg);
+            color: var(--green-text);
+            border: 1px solid var(--green);
+        }
+
+        .pill {
+            font-size: 13px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            border: 1px solid var(--border2);
+            color: var(--text2);
+            display: inline-block;
+            margin: 3px;
+        }
+
+        /* ── MANOBRAS ── */
+        .manobra {
+            background: var(--bg2);
+            border-radius: var(--radius);
+            padding: 1rem;
+            margin-bottom: .75rem;
+            border: 1px solid var(--border);
+        }
+        .manobra-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: .3rem;
+        }
+        .manobra-how {
+            font-size: 13px;
+            color: var(--text2);
+            margin-bottom: .4rem;
+            line-height: 1.5;
+        }
+        .manobra-pos {
+            font-size: 13px;
+            color: var(--blue);
+            margin-bottom: .2rem;
+            font-weight: 500;
+        }
+        .manobra-cond {
+            font-size: 13px;
+            color: var(--green);
+            font-weight: 500;
+        }
+
+        /* ── TABLES ── */
+        .table-wrap {
+            overflow-x: auto;
+            margin-bottom: 1rem;
+            background: var(--bg);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        th {
+            text-align: left;
+            padding: 10px 12px;
+            font-weight: 600;
+            background: var(--bg2);
+            color: var(--text);
+            border-bottom: 1px solid var(--border2);
+        }
+        td {
+            padding: 10px 12px;
+            color: var(--text2);
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+            line-height: 1.5;
+        }
+        tr:hover td {
+            background: var(--bg3);
+        }
+
+        /* ── SEARCH ── */
+        .search-wrap {
+            margin-bottom: 1.5rem;
+        }
+        #search-box {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 15px;
+            border: 1px solid var(--border2);
+            border-radius: var(--radius);
+            background: var(--bg);
+            color: var(--text);
+            outline: none;
+            transition: .2s;
+        }
+        #search-box:focus {
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px var(--blue-bg);
+        }
+
+        /* ── FLASHCARDS ── */
+        .flashcard {
+            background: var(--bg);
+            border: 1px solid var(--border2);
+            border-radius: var(--radius-lg);
+            padding: 1.25rem;
+            cursor: pointer;
+            transition: all .2s;
+            margin-bottom: .75rem;
+            user-select: none;
+        }
+        .flashcard:hover {
+            background: var(--bg2);
+            border-color: var(--blue);
+        }
+        .flashcard-q {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: .5rem;
+        }
+        .flashcard-a {
+            font-size: 14px;
+            color: var(--text2);
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            display: none;
+        }
+        .flashcard.open .flashcard-a {
+            display: block;
+            animation: fadeIn 0.2s;
+        }
+
+        /* ── QUIZ ── */
+        .quiz-header {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .quiz-stat {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1rem;
+            flex: 1;
+            min-width: 100px;
+            text-align: center;
+        }
+        .quiz-stat-num {
+            font-size: 26px;
+            font-weight: 600;
+            color: var(--blue);
+        }
+        .quiz-stat-label {
+            font-size: 12px;
+            color: var(--text3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+        .quiz-q {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 1.25rem;
+            line-height: 1.5;
+        }
+        .quiz-opt {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 12px 16px;
+            margin-bottom: .75rem;
+            background: var(--bg);
+            border: 1px solid var(--border2);
+            border-radius: var(--radius);
+            font-size: 14px;
+            color: var(--text2);
+            cursor: pointer;
+            transition: all .2s;
+        }
+        .quiz-opt:hover:not(:disabled) {
+            background: var(--blue-bg);
+            border-color: var(--blue);
+            color: var(--blue-text);
+        }
+        .quiz-opt.correct {
+            background: var(--green-bg);
+            border-color: var(--green);
+            color: var(--green-text);
+            font-weight: 600;
+        }
+        .quiz-opt.wrong {
+            background: var(--red-bg);
+            border-color: var(--red);
+            color: var(--red-text);
+            font-weight: 600;
+        }
+        .quiz-opt:disabled {
+            cursor: default;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            border: 1px solid var(--border2);
+            border-radius: var(--radius);
+            background: var(--bg);
+            color: var(--text);
+            cursor: pointer;
+            transition: all .2s;
+        }
+        .btn-primary {
+            background: var(--blue);
+            color: #fff;
+            border-color: var(--blue);
+        }
+        .btn-primary:hover {
+            background: #124a82;
+        }
+        .hidden {
+            display: none !important;
+        }
+
+        /* ── HAMBURGER ── */
+        .hamburger {
+            display: none;
+            position: fixed;
+            top: 15px;
+            right: 15px;
+            z-index: 200;
+            padding: 10px;
+            background: var(--bg);
+            border: 1px solid var(--border2);
+            border-radius: var(--radius);
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text);
+        }
+        .overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .5);
+            z-index: 150;
+        }
+        @media(max-width:768px) {
+            .hamburger {
+                display: flex;
+            }
+            .sidebar {
+                position: fixed;
+                left: -260px;
+                top: 0;
+                z-index: 160;
+                transition: .3s;
+                height: 100vh;
+            }
+            .sidebar.open {
+                left: 0;
+            }
+            .overlay.open {
+                display: block;
+            }
+            .main {
+                padding: 1.5rem;
+                padding-top: 4.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">
+        <span></span><span></span><span></span>
+    </button>
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <div class="app">
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <h1>Ortopedia &amp; Trauma</h1>
+                <p>Clínica + Tratamento</p>
+            </div>
+
+            <div class="nav-section">📋 Módulos Clínicos</div>
+            <button class="nav-item" onclick="showPage('termo',this)">🔤 Terminologia Essencial</button>
+            <button class="nav-item active" onclick="showPage('fund',this)">Módulo 1 — Fundamentos</button>
+            <button class="nav-item" onclick="showPage('ped',this)">Módulo 2 — Pediatria</button>
+            <button class="nav-item" onclick="showPage('meta',this)">Módulo 3 — Osteometabólico</button>
+
+            <div class="nav-section">💊 Tratamento</div>
+            <button class="nav-item trat" onclick="showPage('trat-fund',this)">Módulo 4 — Trat. Fundamentos</button>
+            <button class="nav-item trat" onclick="showPage('trat-ped',this)">Módulo 5 — Trat. Pediatria</button>
+            <button class="nav-item trat" onclick="showPage('trat-meta',this)">Módulo 6 — Trat. Osteometabólico</button>
+
+            <div class="nav-section">🔬 Prática &amp; Revisão</div>
+            <button class="nav-item" onclick="showPage('semi',this)">Semiologia e Manobras</button>
+            <button class="nav-item" onclick="showPage('quiz',this)">Quiz Interativo</button>
+            <button class="nav-item" onclick="showPage('flash',this)">Flashcards</button>
+        </nav>
+
+        <main class="main">
+
+            <!-- ====================================================================== -->
+            <!-- TERMINOLOGIA ESSENCIAL                                                  -->
+            <!-- ====================================================================== -->
+            <div id="page-termo" class="page">
+                <h2>Terminologia Essencial em Ortopedia</h2>
+                <p class="page-sub">Glossário visual de conceitos, movimentos, deformidades e termos técnicos fundamentais para a prova</p>
+
+                <h3>Lesões e Definições Fundamentais</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Termo</th><th>Definição</th><th>Exemplo / Ponto-chave</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Fratura</strong></td><td>Perda/solução de continuidade do tecido ósseo, completa ou incompleta.</td><td>Galho verde (incompleta, 1 córtex) — típica na infância</td></tr>
+                            <tr><td><strong>Fratura exposta</strong></td><td>Comunicação do foco de fratura com o meio externo através da pele.</td><td>Urgência cirúrgica — lavagem + fixação em 6h (janela de ouro)</td></tr>
+                            <tr><td><strong>Fratura patológica</strong></td><td>Fratura em osso previamente enfraquecido por doença (neoplasia, osteoporose, Paget).</td><td>Trauma mínimo ou ausente para gerar a fratura</td></tr>
+                            <tr><td><strong>Luxação</strong></td><td>Perda <em>total</em> e permanente da relação anatômica entre superfícies articulares.</td><td>Redução de urgência — risco de NAV e lesão nervosa</td></tr>
+                            <tr><td><strong>Subluxação</strong></td><td>Perda <em>parcial</em> do contato articular.</td><td>Frequente no ombro e tornozelo</td></tr>
+                            <tr><td><strong>Entorse Grau I</strong></td><td>Estiramento ligamentar sem ruptura; articulação estável.</td><td>Sem instabilidade, tratamento: RICE</td></tr>
+                            <tr><td><strong>Entorse Grau II</strong></td><td>Ruptura ligamentar parcial; instabilidade leve a moderada.</td><td>Órtese funcional + fisioterapia</td></tr>
+                            <tr><td><strong>Entorse Grau III</strong></td><td>Ruptura ligamentar completa; instabilidade franca.</td><td>Pode necessitar de cirurgia</td></tr>
+                            <tr><td><strong>Pseudoartrose</strong></td><td>Ausência de consolidação óssea após período biológico esperado (> 6 meses).</td><td>Forma "falsa articulação" — geralmente requer cirurgia + enxerto</td></tr>
+                            <tr><td><strong>Consolidação viciosa</strong></td><td>Consolidação que ocorre em posição morfologicamente inadequada.</td><td>Deformidade residual — pode exigir osteotomia corretiva</td></tr>
+                            <tr><td><strong>Anquilose</strong></td><td>Perda da mobilidade articular por processo <em>patológico</em>.</td><td>Ex: espondilite anquilosante, artrose avançada</td></tr>
+                            <tr><td><strong>Artrodese</strong></td><td>Fusão articular induzida por <em>cirurgia</em> intencional.</td><td>Objetivo: eliminar dor com estabilidade permanente</td></tr>
+                            <tr><td><strong>Artroplastia</strong></td><td>Substituição parcial ou total de uma articulação por prótese.</td><td>ATQ (artropastia total do quadril), PTJ (prótese total de joelho)</td></tr>
+                            <tr><td><strong>Osteossíntese</strong></td><td>União cirúrgica das extremidades de uma fratura por implantes metálicos.</td><td>Placas, parafusos, hastes intramedulares, fios de Kirschner</td></tr>
+                            <tr><td><strong>Hemartrose</strong></td><td>Presença de sangue dentro de uma articulação.</td><td>Após trauma, sugere lesão de estrutura vascularizada (LCA, menisco periférico)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Desvios Angulares e Posicionais</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Termo</th><th>Definição</th><th>Exemplo clínico</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Varo</strong></td><td>Vértice do desvio se <em>afasta</em> da linha mediana.</td><td>Geno varo (pernas arqueadas), hallux varo</td></tr>
+                            <tr><td><strong>Valgo</strong></td><td>Vértice do desvio se <em>aproxima</em> da linha mediana.</td><td>Geno valgo (joelhos em X), hallux valgo (joanete)</td></tr>
+                            <tr><td><strong>Equino</strong></td><td>Pé em flexão plantar permanente; calcanhar elevado do solo.</td><td>Componente do PTC; paralisia cerebral espástica</td></tr>
+                            <tr><td><strong>Cavo</strong></td><td>Aumento exagerado do arco plantar.</td><td>Componente do PTC; pé cavo neurológico (doença de Charcot-Marie-Tooth)</td></tr>
+                            <tr><td><strong>Plano (pé plano)</strong></td><td>Diminuição ou ausência do arco plantar medial.</td><td>Fisiológico até 6–7 anos; patológico se sintomático/rígido</td></tr>
+                            <tr><td><strong>Aduto</strong></td><td>Antepé desviado em direção à linha média.</td><td>Componente do PTC; metatarso aduto</td></tr>
+                            <tr><td><strong>Rotação externa</strong></td><td>Giro do membro em torno do eixo longitudinal para fora.</td><td>Sinal clássico das fraturas do fêmur proximal</td></tr>
+                            <tr><td><strong>Cifose</strong></td><td>Curvatura com convexidade posterior da coluna (coluna torácica).</td><td>Fisiológica na região torácica; patológica quando &gt; 40°</td></tr>
+                            <tr><td><strong>Lordose</strong></td><td>Curvatura com convexidade anterior da coluna (cervical e lombar).</td><td>Hiperlordose lombar pode indicar contratura do quadril</td></tr>
+                            <tr><td><strong>Escoliose</strong></td><td>Desvio lateral da coluna &gt; 10° (Ângulo de Cobb) + rotação vertebral.</td><td>EIA representa 90% dos casos</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Movimentos Articulares — Referência Rápida</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Movimento</th><th>Descrição</th><th>Amplitude normal (referência)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Flexão / Extensão</strong></td><td>Diminuição / aumento do ângulo articular no plano sagital.</td><td>Joelho: 0–140°; Cotovelo: 0–145°</td></tr>
+                            <tr><td><strong>Abdução</strong></td><td>Afastamento do segmento da linha média do corpo.</td><td>Quadril: 0–45°; Ombro: 0–180°</td></tr>
+                            <tr><td><strong>Adução</strong></td><td>Aproximação do segmento em relação à linha média.</td><td>Quadril: 0–30°; Ombro: 0–45°</td></tr>
+                            <tr><td><strong>Rotação interna / externa</strong></td><td>Giro em torno do eixo longitudinal do membro, para dentro ou para fora.</td><td>Quadril: RI 0–45°; RE 0–45°</td></tr>
+                            <tr><td><strong>Pronação</strong></td><td>Rotação do antebraço de modo que a palma fique voltada para baixo/trás.</td><td>Antebraço: 0–85°</td></tr>
+                            <tr><td><strong>Supinação</strong></td><td>Rotação do antebraço de modo que a palma fique voltada para cima/frente.</td><td>Antebraço: 0–85°</td></tr>
+                            <tr><td><strong>Dorsiflexão</strong></td><td>Flexão dorsal do pé em direção à tíbia (reduz ângulo tornozelo-perna).</td><td>Tornozelo: 0–20°</td></tr>
+                            <tr><td><strong>Flexão plantar</strong></td><td>Extensão do pé afastando-o da tíbia.</td><td>Tornozelo: 0–50°</td></tr>
+                            <tr><td><strong>Inversão / Eversão</strong></td><td>Giro da planta do pé para dentro (inversão) ou para fora (eversão).</td><td>Mecanismo da entorse: inversão + flexão plantar → LTFA</td></tr>
+                            <tr><td><strong>Circundução</strong></td><td>Movimento combinado que descreve um cone no espaço.</td><td>Quadril, ombro</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Termos de Localização e Imagem</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Termo</th><th>Definição</th><th>Aplicação</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Proximal</strong></td><td>Mais próximo da raiz do membro / origem.</td><td>Cabeça do rádio é proximal ao seu estiloide</td></tr>
+                            <tr><td><strong>Distal</strong></td><td>Mais distante da raiz do membro.</td><td>Tornozelo é distal ao joelho</td></tr>
+                            <tr><td><strong>Medial</strong></td><td>Mais próximo do plano mediano do corpo.</td><td>Maléolo medial (tíbia)</td></tr>
+                            <tr><td><strong>Lateral</strong></td><td>Mais afastado do plano mediano.</td><td>Maléolo lateral (fíbula)</td></tr>
+                            <tr><td><strong>Epífise</strong></td><td>Extremidade do osso longo, constituída de osso esponjoso.</td><td>Cabeça do fêmur, côndilo femoral</td></tr>
+                            <tr><td><strong>Metáfise</strong></td><td>Zona de transição entre epífise e diáfise, onde está a fise (placa de crescimento).</td><td>Região de maior crescimento em crianças</td></tr>
+                            <tr><td><strong>Diáfise</strong></td><td>Porção tubular (corpo) do osso longo.</td><td>Haste femoral fica na diáfise</td></tr>
+                            <tr><td><strong>Fise (placa de crescimento)</strong></td><td>Cartilagem de crescimento presente nos ossos imaturos, ponto de vulnerabilidade.</td><td>EPF: escorregamento da fise proximal do fêmur</td></tr>
+                            <tr><td><strong>Escanograma</strong></td><td>RX longo com régua para medir comprimento dos membros e avaliar eixos.</td><td>Quantifica dismetria de MMII com precisão</td></tr>
+                            <tr><td><strong>Cintilografia óssea</strong></td><td>Rastreio de alta atividade metabólica óssea com radiofármaco (Tc99m).</td><td>Útil em metástases, Paget, infecção precoce</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Tratamento — Termos Cirúrgicos e Conservadores</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Termo</th><th>O que é</th><th>Quando usar</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Redução fechada</strong></td><td>Alinhamento da fratura/luxação sem abrir a pele, por manobras manuais ou tração.</td><td>Fraturas sem desvio grave, fechadas, pediátricas</td></tr>
+                            <tr><td><strong>Redução aberta</strong></td><td>Visualização direta do foco cirúrgico para reposicionamento dos fragmentos.</td><td>Fraturas intra-articulares, expostas, com desvio</td></tr>
+                            <tr><td><strong>Haste intramedular (HIM)</strong></td><td>Implante metálico inserido pelo canal medular do osso longo.</td><td>Padrão-ouro para fêmur e tíbia. Ex: PFN, UFN</td></tr>
+                            <tr><td><strong>Placa e parafusos</strong></td><td>Fixação externa ao osso para estabilização.</td><td>Fraturas metafisárias, articulares, rádio distal</td></tr>
+                            <tr><td><strong>Fixador externo</strong></td><td>Pinos ósseos conectados a barras externas à pele.</td><td>Damage control, fraturas expostas graves, pelve instável</td></tr>
+                            <tr><td><strong>DHS (parafuso deslizante)</strong></td><td>Fixação da fratura intertrocantérica com parafuso de compressão dinâmica.</td><td>Fratura intertrocantérica estável do idoso</td></tr>
+                            <tr><td><strong>PFN (proximal femoral nail)</strong></td><td>Haste intramedular com parafuso cefálico.</td><td>Fraturas intertrocantéricas instáveis</td></tr>
+                            <tr><td><strong>Hemiartroplastia</strong></td><td>Substituição apenas da cabeça femoral (sem acetábulo).</td><td>Colo femoral no idoso com atividade reduzida</td></tr>
+                            <tr><td><strong>Artroplastia total</strong></td><td>Substituição de toda a articulação por prótese metálica/polietileno.</td><td>Artrose severa, colo femoral em ativo</td></tr>
+                            <tr><td><strong>Suspensório de Pavlik</strong></td><td>Órtese flexível que mantém os quadris em abdução e flexão.</td><td>DDQ em lactentes 0–6 meses</td></tr>
+                            <tr><td><strong>Tenotomia do calcâneo</strong></td><td>Secção percutânea do tendão aquiliano para corrigir o equino do PTC.</td><td>Etapa final do Método de Ponseti</td></tr>
+                            <tr><td><strong>Epifisiodese</strong></td><td>Bloqueio cirúrgico do crescimento de uma fise.</td><td>Discrepância de membros, geno valgo patológico adolescente</td></tr>
+                            <tr><td><strong>Osteotomia</strong></td><td>Corte cirúrgico do osso para corrigir eixo ou comprimento.</td><td>Artrose de compartimento único, deformidades angulares</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Nervos Periféricos — Distribuição e Déficits Clínicos</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Nervo</th><th>Território Sensitivo</th><th>Função Motora Chave</th><th>Lesão → Sinal Clínico</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>Mediano</strong></td><td>Polegar, 2°, 3° e metade radial do 4° dedo (palmar)</td><td>Pronação, flexão de dedos, oponência do polegar</td><td>Mão em bênção, atrofia tenar, perda da pinça polegar-indicador</td></tr>
+                            <tr><td><strong>Ulnar</strong></td><td>5° dedo e metade ulnar do 4° (palmar e dorsal)</td><td>Adutores dos dedos, interósseos, adutor do polegar</td><td>Mão em garra (4°-5° dedos), Froment positivo</td></tr>
+                            <tr><td><strong>Radial</strong></td><td>Dorso da mão (radial), polegar</td><td>Extensão do punho e dedos, supinação</td><td>Mão caída (wrist drop)</td></tr>
+                            <tr><td><strong>Ciático (L4-S1)</strong></td><td>Toda a perna e pé (via tibial e fibular)</td><td>Toda musculatura abaixo do joelho</td><td>Foot drop (lesão do fibular), perda do reflexo aquileu</td></tr>
+                            <tr><td><strong>Femoral (L2-L4)</strong></td><td>Face anterior da coxa e medial da perna</td><td>Quadríceps (extensão do joelho), iliopsoas</td><td>Incapacidade de estender o joelho, perda do reflexo patelar</td></tr>
+                            <tr><td><strong>Axilar (C5-C6)</strong></td><td>Região do deltóide (distintiva)</td><td>Abdução do ombro (deltóide)</td><td>Lesão em luxação anterior do ombro; déficit de abdução</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Protocolo RICE e Regras de Ottawa — Referência Rápida</h3>
+                <div class="grid2">
+                    <div class="card card-blue">
+                        <h4>Protocolo RICE — fase aguda de lesões</h4>
+                        <table style="margin-top:.5rem">
+                            <tbody>
+                                <tr><td style="font-weight:600;color:var(--blue);padding:6px 10px"><strong>R</strong></td><td style="padding:6px 10px">Rest — Repouso relativo</td></tr>
+                                <tr><td style="font-weight:600;color:var(--blue);padding:6px 10px"><strong>I</strong></td><td style="padding:6px 10px">Ice — Gelo (15–20 min, 4–6x/dia)</td></tr>
+                                <tr><td style="font-weight:600;color:var(--blue);padding:6px 10px"><strong>C</strong></td><td style="padding:6px 10px">Compression — Compressão elástica</td></tr>
+                                <tr><td style="font-weight:600;color:var(--blue);padding:6px 10px"><strong>E</strong></td><td style="padding:6px 10px">Elevation — Elevação do membro</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card card-amber">
+                        <h4>Regras de Ottawa — quando solicitar RX</h4>
+                        <p><strong>Tornozelo:</strong> Dor maleolar + dor óssea nos 6 cm distais de qualquer maléolo, OU incapacidade de caminhar.</p>
+                        <p style="margin-top:.5rem"><strong>Pé:</strong> Dor no médio-pé + dor óssea na base do 5° metatarso ou navicular, OU incapacidade de suporte de carga.</p>
+                        <p style="margin-top:.5rem;font-size:13px;color:var(--text3)">Sensibilidade ≈ 98% para excluir fratura clinicamente relevante.</p>
+                    </div>
+                </div>
+
+                <h3>Classificações e Scores Essenciais para a Prova</h3>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr><th>Classificação / Score</th><th>Para quê serve</th><th>O que é importante saber</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>T-score (OMS)</strong></td><td>Diagnóstico de osteoporose pela densitometria</td><td>Normal ≥ −1 / Osteopenia −1 a −2,5 / Osteoporose ≤ −2,5 DP</td></tr>
+                            <tr><td><strong>Ângulo de Cobb</strong></td><td>Medir a escoliose no RX panorâmico</td><td>&gt; 10° = escoliose; &gt; 45°–50° = indicação cirúrgica</td></tr>
+                            <tr><td><strong>Ângulo de Pauwels</strong></td><td>Avaliar estabilidade da fratura do colo femoral</td><td>Ângulo do traço com horizontal: I (&lt;30°), II (30–50°), III (&gt;50°)</td></tr>
+                            <tr><td><strong>Garden (colo femoral)</strong></td><td>Classificar o desvio da fratura do colo</td><td>I/II sem desvio (consolidam bem); III/IV com desvio (alto risco de NAV)</td></tr>
+                            <tr><td><strong>Herring (Perthes)</strong></td><td>Avaliar colapso do pilar lateral da epífise</td><td>Grupo A: bom prognóstico; Grupo C: colapso total, prognóstico ruim</td></tr>
+                            <tr><td><strong>Gustilo-Anderson</strong></td><td>Classificar fraturas expostas pela contaminação</td><td>Tipo III C: lesão arterial — urgência cirúrgica máxima</td></tr>
+                            <tr><td><strong>ASIA</strong></td><td>Avaliar nível e completude da lesão medular</td><td>0 = paralisia total; 5 = força normal; 3 = vence a gravidade</td></tr>
+                            <tr><td><strong>Risser</strong></td><td>Avaliar maturidade esquelética na escoliose</td><td>Risser 0–1 = alto risco de progressão; Risser 4–5 = maturidade completa</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ====================================================================== -->
+            <!-- MÓDULO 1 — Fundamentos (Clínica)                                        -->
+            <!-- ====================================================================== -->
+            <div id="page-fund" class="page active">
+                <h2>Módulo 1 — Fundamentos em Ortopedia e Traumatologia</h2>
+                <p class="page-sub">Conceitos básicos, radiologia, trauma pélvico, síndromes compressivas e afecções da coluna</p>
+
+                <h3>1.1 Conceitos Essenciais em Ortopedia</h3>
+                <div class="grid2">
+                    <div class="card card-blue"><span class="badge badge-blue">Fratura</span>
+                        <p>Solução de continuidade do tecido ósseo. Pode ser incompleta (como a fratura em galho verde, típica na infância) ou completa. Classificam-se quanto à localização (epifisárias, metafisárias, diafisárias), ao traço (transversas, oblíquas, espiraladas, cominutivas) e ao desvio (diástase, cavalgamento). Dividem-se também em fechadas (pele íntegra) ou expostas (comunicação com o meio externo, configurando urgência cirúrgica).</p>
+                    </div>
+                    <div class="card card-blue"><span class="badge badge-blue">Luxação e Subluxação</span>
+                        <p><strong>Luxação</strong> é a perda total e permanente da relação anatômica (incongruência) entre as superfícies articulares. A <strong>Subluxação</strong> é a perda parcial do contato. Ambas exigem redução de urgência para evitar complicações isquêmicas (necrose avascular) e lesões neurológicas periféricas.</p>
+                    </div>
+                    <div class="card card-blue"><span class="badge badge-blue">Entorse</span>
+                        <p>Estiramento ou ruptura das estruturas estabilizadoras (cápsula e ligamentos), sendo a lesão mais comum na prática esportiva. É graduada em: <strong>Grau I</strong> (estiramento leve sem instabilidade), <strong>Grau II</strong> (ruptura parcial com instabilidade leve a moderada) e <strong>Grau III</strong> (ruptura ligamentar completa com instabilidade franca).</p>
+                    </div>
+                    <div class="card card-amber"><span class="badge badge-amber">Desvios e Consolidação</span>
+                        <p><strong>Varo:</strong> o vértice do desvio afasta-se da linha mediana (ex: pernas arqueadas).<br><strong>Valgo:</strong> o vértice aproxima-se da linha mediana (ex: joelhos em X).<br><strong>Pseudoartrose:</strong> Ausência definitiva de consolidação óssea após o período biológico esperado (geralmente > 6 meses), formando uma "falsa articulação" que frequentemente requer cirurgia e enxerto ósseo.</p>
+                    </div>
+                    <div class="card card-purple"><span class="badge badge-purple">Anquilose e Artrodese</span>
+                        <p><strong>Anquilose:</strong> Perda da mobilidade de uma articulação decorrente de um processo patológico (ex: osteoartrite severa ou fusão por espondilite).<br><strong>Artrodese:</strong> Fusão articular induzida propositalmente por procedimento cirúrgico para alívio de dor ou estabilidade.</p>
+                    </div>
+                </div>
+
+                <h3>1.2 Princípios de Tratamento e Imobilização</h3>
+                <div class="card">
+                    <h4>Fases da Consolidação Óssea</h4>
+                    <p>O reparo de uma fratura passa por três estágios biológicos principais: 1. <strong>Fase Inflamatória</strong> (formação do hematoma no foco da fratura), 2. <strong>Fase de Reparação Endocondral</strong> (formação do calo mole cartilaginoso que evolui para calo duro) e 3. <strong>Fase de Remodelação</strong> (onde o osso recupera gradativamente sua arquitetura trabecular sob estímulo mecânico).</p>
+                </div>
+                <div class="grid2">
+                    <div class="card card-green">
+                        <h4>Tratamento Conservador</h4>
+                        <div class="pill">Fraturas Incompletas/Sem Desvio</div><div class="pill">Entorses Leves a Moderadas</div><div class="pill">Fraturas Pediátricas Fechadas</div>
+                        <p style="margin-top:.5rem">Baseado no trinômio: <strong>Redução Fechada</strong> (manobras manuais para alinhamento), <strong>Imobilização</strong> (para manter a redução e prover analgesia) e <strong>Reabilitação</strong> fisioterápica. Na fase aguda de lesões de partes moles, emprega-se o protocolo RICE (Repouso, Gelo, Compressão, Elevação).</p>
+                        <p><strong>Métodos:</strong> Talas gessadas (utilizadas na fase aguda do trauma para acomodar o edema inicial e evitar Síndrome Compartimental), gessos circulares (fase subaguda), tipóias, colares cervicais e órteses pré-fabricadas.</p>
+                    </div>
+                    <div class="card card-red">
+                        <h4>Tratamento Cirúrgico</h4>
+                        <div class="pill">Fraturas Expostas</div><div class="pill">Intra-articulares com Desvio</div><div class="pill">Dano Vasculonervoso</div><div class="pill">Não União (Pseudoartrose)</div>
+                        <p style="margin-top:.5rem">Baseia-se na <strong>Redução Aberta</strong> e visualização direta do foco (ou indireta por radioscopia), com o objetivo de restauração da anatomia (crucial em fraturas articulares para evitar artrose precoce) e mobilização precoce.</p>
+                        <p><strong>Fixação Interna:</strong> Uso de placas, parafusos e hastes intramedulares (padrão-ouro para ossos longos como fêmur e tíbia).<br><strong>Fixação Externa:</strong> Pinos percutâneos ligados a barras externas. Utilizada amplamente no "Damage Control" (controle de danos) em politraumatizados graves ou fraturas expostas altamente contaminadas.</p>
+                    </div>
+                </div>
+
+                <h3>1.3 Imaginologia e Radiologia Óssea</h3>
+                <div class="card card-amber">
+                    <h4>Princípios de Ouro do Raio-X (A Regra dos Dois)</h4>
+                    <p>O exame radiográfico é a base da ortopedia. Como ele converte um objeto tridimensional em uma sombra bidimensional, gera perigosa sobreposição de estruturas. Para evitar erros diagnósticos crassos, segue-se a regra de ouro:</p>
+                    <ul style="margin-top:0.5rem; margin-bottom:0;">
+                        <li><strong>Dois Planos:</strong> Avaliação obrigatória em pelo menos duas incidências ortogonais (tipicamente AP e Perfil).</li>
+                        <li><strong>Duas Articulações:</strong> Incluir sempre a articulação proximal e a distal ao osso suspeito de fratura.</li>
+                        <li><strong>Dois Lados:</strong> Na pediatria, radiografar o membro contralateral sadio para comparação anatômica das placas de crescimento (fises).</li>
+                        <li><strong>Dois Tempos:</strong> Controle radiográfico exigido antes e após qualquer manobra de redução ou imobilização.</li>
+                    </ul>
+                </div>
+                <div class="grid3">
+                    <div class="card"><span class="badge badge-gray">Escanograma / Panorâmica</span><p>Radiografia longa e graduada com régua métrica para medir com extrema precisão o comprimento dos membros inferiores, quantificar dismetrias e avaliar os eixos mecânicos (varo/valgo) globais.</p></div>
+                    <div class="card"><span class="badge badge-gray">Tomografia Computadorizada (TC)</span><p>Padrão-ouro para a avaliação de fraturas articulares complexas (ex: pelve, platô tibial, calcâneo, coluna). Elimina a sobreposição óssea e permite reconstruções 3D vitais para o planejamento cirúrgico.</p></div>
+                    <div class="card"><span class="badge badge-gray">Ressonância Magnética (RM)</span><p>Exame de eleição para partes moles. Detecta lesões em ligamentos (ex: LCA), tendões, meniscos, cartilagem, além de diagnosticar tumores, osteomielite e fraturas ocultas/estresse não visíveis no Raio-X inicial.</p></div>
+                </div>
+                <div class="card">
+                    <p style="margin-bottom:0;"><strong>Técnicas Dinâmicas e Específicas:</strong><br>O <strong>Raio-X sob Stress</strong> avalia a instabilidade articular dinamicamente através da aplicação de força. A <strong>Artrografia e Pneumoartrografia</strong> (uso de contraste intra-articular e/ou ar) permitem visualizar contornos de estruturas radiotransparentes como meniscos e labrum. A <strong>Cintilografia Óssea</strong> rastreia alta atividade metabólica (útil em metástases, infecções precoces e Paget). A <strong>Ultrassonografia (USG)</strong> é excelente, rápida e dinâmica para avaliar tendões superficiais (manguito rotador, tendão de Aquiles), identificar derrames articulares e é o exame padrão-ouro para triagem do quadril infantil (DDQ) antes da ossificação (até os 6 meses de vida).</p>
+                </div>
+
+                <h3>1.4 Trauma de Pelve</h3>
+                <p>Fraturas do anel pélvico com grande morbimortalidade por hemorragia maciça. Segue a Classificação de Young e Burgess / Tile.</p>
+                <div class="grid2">
+                    <div class="card">
+                        <h4>Compressão Lateral (CL)</h4>
+                        <p><strong>Epidemiologia:</strong> Fratura de pelve mais comum.</p>
+                        <p><strong>Fisiopatologia:</strong> Impacto lateral faz a hemipelve sofrer rotação interna ("empurrada para dentro"). Geralmente estruturalmente mais estável.</p>
+                        <p><strong>Sinais e Sintomas:</strong> Dor à palpação, hematoma e encurtamento aparente do membro.</p>
+                        <p><strong>Diagnóstico (Critérios/Imagem):</strong> Raio-X AP da Pelve. Menor risco de hemorragia grave associada se comparada a outras fraturas de pelve.</p>
+                        <p><strong>Diagnóstico Diferencial:</strong> Fratura de colo de fêmur, fratura isolada de acetábulo.</p>
+                    </div>
+                    <div class="card card-red">
+                        <h4>Compressão AP ("Livro Aberto")</h4>
+                        <p><strong>Epidemiologia:</strong> Comum em traumas automobilísticos frontais ou atropelamentos (alta energia).</p>
+                        <p><strong>Fisiopatologia:</strong> Ocorre abertura/diástase da sínfise púbica e ruptura dos ligamentos sacroilíacos. Altamente instável hemodinamicamente.</p>
+                        <p><strong>Sinais e Sintomas:</strong> Pelve instável ao exame físico, choque hipovolêmico por rompimento do plexo venoso pré-sacral.</p>
+                        <p><strong>Diagnóstico (Critérios/Imagem):</strong> Protocolo ATLS, Raio-X e TC de pelve para planejar fixação. Score de estabilidade dita a urgência.</p>
+                        <p><strong>Diagnóstico Diferencial:</strong> Hemorragia abdominal interna (rotura de baço/fígado).</p>
+                    </div>
+                    <div class="card card-red">
+                        <h4>Cisalhamento Vertical</h4>
+                        <p><strong>Epidemiologia:</strong> Menos comum, decorrente de traumas de altíssima energia (quedas de grande altura).</p>
+                        <p><strong>Fisiopatologia:</strong> Ascensão de uma hemipelve com ruptura total dos ligamentos estabilizadores verticais.</p>
+                        <p><strong>Sinais e Sintomas:</strong> Dor excruciante, membro inferior encurtado e rodado, choque profundo.</p>
+                        <p><strong>Diagnóstico (Critérios/Imagem):</strong> Raio-X com desnível claro da bacia e disjunção sacroilíaca. TC obrigatória após estabilização.</p>
+                        <p><strong>Diagnóstico Diferencial:</strong> Luxação coxofemoral superior.</p>
+                    </div>
+                </div>
+
+                <h3>1.5 Síndromes Compressivas e Tendinopatias</h3>
+                <div class="grid2">
+                    <div class="card card-purple">
+                        <h4>Síndrome do Túnel do Carpo</h4>
+                        <p><strong>Epidemiologia:</strong> Neuropatia compressiva mais prevalente. Mulheres entre 40-60 anos são as mais afetadas.</p>
+                        <p><strong>Fisiopatologia:</strong> Compressão do Nervo Mediano sob o retináculo dos flexores no punho.</p>
+                        <p><strong>Sinais e Sintomas:</strong> Parestesia nos 1º, 2º, 3º e metade radial do 4º dedos. <em>Poupa o dedo mínimo</em>. Piora noturna clássica (sinal do flick). Atrofia tenar tardia.</p>
+                        <p><strong>Diagnóstico (Critérios/Imagem):</strong> Clínico + Positividade nos testes de Phalen e Tinel. Eletroneuromiografia (ENMG) confirma o bloqueio sensitivo-motor.</p>
+                        <p><strong>Diagnóstico Diferencial:</strong> Radiculopatia cervical (C6-C7), Síndrome do Pronador Redondo.</p>
+                    </div>
+                    <div class="card card-purple">
+                        <h4>Neuropatia Cubital (Nervo Ulnar)</h4>
+                        <p><strong>Epidemiologia:</strong> Segunda compressão mais comum do membro superior. Frequente em trabalhadores braçais e ciclistas.</p>
+                        <p><strong>Fisiopatologia:</strong> Compressão no Túnel Cubital (cotovelo, piora com flexão) ou no Canal de Guyon (punho).</p>
+                        <p><strong>Sinais e Sintomas:</strong> Parestesia no dedo mínimo e face ulnar do anelar. Evolução com atrofia interóssea e "mão em garra".</p>
+                        <p><strong>Diagnóstico (Critérios/Imagem):</strong> Sinal de Froment positivo. ENMG para localizar o nível da compressão.</p>
+                        <p><strong>Diagnóstico Diferencial:</strong> Radiculopatia C8-T1, compressão do desfiladeiro torácico.</p>
+                    </div>
+                    <div class="card card-blue">
+                        <h4>Tenossinovite de De Quervain</h4>
+                        <p><strong>Epidemiologia:</strong> Extremamente comum em mulheres puérperas ("punho da mamãe") e movimentos repetitivos de pinça.</p>
+                        <p><strong>Fisiopatologia:</strong> Inflamação estenosante do 1º compartimento extensor (Abdutor Longo e Extensor Curto do Polegar).</p>
+                        <p><strong>Sinais e Sintomas:</strong> Dor na borda radial do punho, edema local e restrição à movimentação do polegar.</p>
+                        <p><strong>Diagnóstico (Critérios/Imagem):</strong> Diagnóstico puramente clínico. Teste de Finkelstein positivo (dor aguda ao desvio ulnar passivo com polegar fletido).</p>
+                        <p><strong>Diagnóstico Diferencial:</strong> Rizartrose (artrose da base do polegar), Síndrome de Wartenberg.</p>
+                    </div>
+                    <div class="card card-blue">
+                        <h4>Epicondilites</h4>
+                        <p><strong>Epidemiologia:</strong> Afeta 1-3% da população. Pico aos 45-55 anos. Acomete tenistas, golfistas e digitadores.</p>
+                        <p><strong>Fisiopatologia:</strong> Microtraumas de repetição e degeneração angiofibroblástica na origem dos extensores (Lateral) ou flexores/pronadores (Medial) do punho.</p>
+                        <p><strong>Sinais e Sintomas:</strong> Dor na lateral ou medial do cotovelo, que irradia para o antebraço, agravada ao segurar objetos pesados.</p>
+                        <p><strong>Diagnóstico (Critérios/Imagem):</strong> Clínico. Testes provocativos: Cozen, Mill e Maudsley (para lateral). USG ou RM apenas em casos refratários.</p>
+                        <p><strong>Diagnóstico Diferencial:</strong> Síndrome do túnel radial, instabilidade ligamentar do cotovelo, radiculopatia cervical.</p>
+                    </div>
+                </div>
+
+                <!-- ========== SEÇÃO 1.6 PADRONIZADA ========== -->
+                <h3>1.6 Coluna Vertebral: Lombalgia e Ciatalgia</h3>
+                <div class="card">
+                    <p><strong>Epidemiologia:</strong> A dor lombar atinge cerca de 80% das pessoas ao menos uma vez na vida. Pico de prevalência entre 35-55 anos.</p>
+                    <p><strong>Fisiopatologia:</strong> A lombalgia mecânica restringe-se à região lombar inferior (fadiga muscular/distensão). Já a ciatalgia é causada por irritação ou compressão mecânica radicular (L5-S1), na maioria das vezes por hérnia de disco.</p>
+                    <p><strong>Sinais e Sintomas:</strong> Dor lombar local ou irradiada que ultrapassa o joelho seguindo os dermátomos (ciatalgia), parestesias e contraturas da musculatura paravertebral.</p>
+                    <p><strong>Diagnóstico (Critérios/Imagem):</strong> O diagnóstico agudo é clínico (Manobra de Lasègue positiva confirma irradiação). RX e RM são indicados apenas na presença de "Red Flags" (bandeiras vermelhas) ou na dor refratária após 6 semanas.</p>
+                    <p><strong>Diagnóstico Diferencial:</strong> Litíase renal, aneurisma da aorta abdominal, osteomielite vertebral, neoplasias retroperitoneais.</p>
+                </div>
+                <div class="grid2">
+                    <div class="card card-red">
+                        <h4>🚩 Bandeiras Vermelhas (Red Flags)</h4>
+                        <p>Exigem investigação emergencial:</p>
+                        <ul>
+                            <li><strong>Déficit neurológico progressivo</strong> / Síndrome da Cauda Equina (anestesia em sela, incontinência)</li>
+                            <li><strong>Febre, drogas IV, imunossupressão</strong> (suspeita de osteomielite)</li>
+                            <li><strong>Perda de peso + histórico de câncer</strong> (metástase)</li>
+                            <li>Trauma grave ou idades extremas (&lt;20 ou &gt;50 anos)</li>
+                            <li>Dor noturna que não alivia com repouso</li>
+                        </ul>
+                    </div>
+                    <div class="card card-amber">
+                        <h4>⚠️ Bandeiras Amarelas (Yellow Flags)</h4>
+                        <p>Fatores psicossociais preditores de cronificação da dor:</p>
+                        <ul>
+                            <li>Insatisfação laboral e litígios trabalhistas</li>
+                            <li>Depressão, ansiedade, estresse</li>
+                            <li>Catastrofização da dor</li>
+                            <li>Cinesiofobia (medo do movimento)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="table-wrap"><table>
+                        <thead><tr><th>Raiz Avaliada</th><th>Reflexo / Músculo Responsável</th><th>Déficit na Marcha</th></tr></thead>
+                        <tbody>
+                            <tr><td>L4</td><td>Reflexo Patelar (Tibial anterior)</td><td>Fraqueza na flexão dorsal</td></tr>
+                            <tr><td>L5</td><td>Extensor longo do hálux</td><td>Dificuldade para andar nos calcanhares</td></tr>
+                            <tr><td>S1</td><td>Reflexo Aquileu (Gastrocnêmio/Sóleo)</td><td>Dificuldade para andar na ponta dos pés</td></tr>
+                        </tbody>
+                    </table></div>
+                <!-- ========== FIM DA SEÇÃO 1.6 ========== -->
+
+                <h3>1.7 Fraturas do Fêmur Proximal do Idoso</h3>
+                <div class="grid2">
+                    <div class="card card-red">
+                        <h4>Colo Femoral (Intracapsular)</h4>
+                        <p><strong>Epidemiologia:</strong> Comum em idosos com osteoporose severa, predominantemente sexo feminino.</p>
+                        <p><strong>Fisiopatologia:</strong> Trauma de baixa energia torcional. O traço intracapsular interrompe o suprimento das artérias retinaculares, gerando risco isquêmico.</p>
+                        <p><strong>Sinais e Sintomas:</strong> Dor na virilha, incapacidade para a marcha. Encurtamento e rotação externa <strong>leves</strong>.</p>
+                        <p><strong>Diagnóstico (Critérios/Imagem):</strong> Radiografia AP da pelve e Perfil do quadril. Classificações de Garden (desvio) e Pauwels (ângulo do traço).</p>
+                        <p><strong>Diagnóstico Diferencial:</strong> Fratura pélvica, luxação do quadril, artrose agudizada severa.</p>
+                    </div>
+                    <div class="card card-green">
+                        <h4>Intertrocantérica (Extracapsular)</h4>
+                        <p><strong>Epidemiologia:</strong> Acomete uma população ainda mais idosa (em média 5 anos mais velha) comparada aos pacientes de fratura do colo.</p>
+                        <p><strong>Fisiopatologia:</strong> Impacto direto sobre o trocânter maior. Sítio extremamente vascularizado (osso esponjoso), não há isquemia, mas há intenso sangramento.</p>
+                        <p><strong>Sinais e Sintomas:</strong> Rotação externa <strong>acentuada</strong> (pé encosta no leito) e grande formação de equimose na base da coxa.</p>
+                        <p><strong>Diagnóstico (Critérios/Imagem):</strong> Radiografia AP e Perfil. Classificação de Evans-Jensen determina a estabilidade ou instabilidade da fratura.</p>
+                        <p><strong>Diagnóstico Diferencial:</strong> Fratura subtrocantérica, fratura de diáfise femoral proximal.</p>
+                    </div>
+                </div>
+
+                <!-- ========== SEÇÃO 1.8 PADRONIZADA ========== -->
+                <h3>1.8 Entorse de Tornozelo</h3>
+                <div class="card card-blue">
+                    <p><strong>Epidemiologia:</strong> A entorse de tornozelo é a lesão musculoesquelética mais comum, representando cerca de 25% de todas as lesões esportivas. Acomete principalmente adultos jovens e atletas, com alta incidência em esportes que envolvem saltos e mudanças bruscas de direção.</p>
+                    <p><strong>Fisiopatologia:</strong> O mecanismo mais frequente é a <strong>inversão forçada do pé associada à flexão plantar</strong>, que lesiona o complexo ligamentar lateral, especialmente o <strong>Ligamento Talofibular Anterior (LTFA)</strong> – o mais frágil e primeiro a romper. Lesões mais graves envolvem o Ligamento Calcaneofibular (LCF) e, em casos extremos, o Ligamento Talofibular Posterior (LTFP). A entorse em eversão (lesão do deltoide) e a lesão da sindesmose (entorse alta) são menos comuns, mas mais graves.</p>
+                    <p><strong>Sinais e Sintomas:</strong> Dor aguda na região lateral do tornozelo, edema (inchaço), equimose (hematoma) e dificuldade ou impossibilidade de apoiar o pé no chão. A intensidade varia conforme o grau da lesão: <strong>Grau I</strong> (estiramento, leve edema, sem instabilidade), <strong>Grau II</strong> (ruptura parcial, edema moderado, instabilidade leve) e <strong>Grau III</strong> (ruptura completa, edema e equimose extensos, instabilidade franca).</p>
+                    <p><strong>Diagnóstico (Critérios/Imagem):</strong> <strong>Exame Físico:</strong> Palpação dolorosa sobre o LTFA, edema e hematoma. Testes de estresse (gaveta anterior e inclinação talar) devem ser realizados com cautela na fase aguda. <strong>Regras de Ottawa</strong>: indicam a necessidade de radiografia se houver dor na região maleolar associada a dor óssea nos 6 cm distais dos maléolos ou incapacidade de deambular. <strong>Imagem:</strong> Radiografias (AP, perfil e AP com rotação interna de 20°) para excluir fraturas. Ultrassonografia e Ressonância Magnética são úteis para avaliar lesões ligamentares e osteocondrais em casos crônicos ou de dúvida.</p>
+                    <p><strong>Diagnóstico Diferencial:</strong> Deve-se excluir: fratura de maléolo, fratura do processo anterior do calcâneo, fratura da base do 5° metatarso, lesão da sindesmose (entorse alta) e luxação do tendão fibular.</p>
+                </div>
+                <!-- ========== FIM DA SEÇÃO 1.8 ========== -->
+
+            </div>
+
+            <!-- ====================================================================== -->
+            <!-- MÓDULO 2 — Pediatria (Clínica)                                          -->
+            <!-- ====================================================================== -->
+            <div id="page-ped" class="page">
+                <h2>Módulo 2 — Ortopedia Pediátrica e do Adolescente</h2>
+                <p class="page-sub">Deformidades angulares, afecções do quadril, escoliose, PTC e peculiaridades das fraturas na infância</p>
+
+                <h3>2.1 Deformidades Angulares (O Eixo Femorotibial)</h3>
+                <div class="card card-blue">
+                    <p><strong>Epidemiologia:</strong> Variações de alinhamento são comuns e correspondem a grande parte das consultas pediátricas. A Doença de Blount (patológica) afeta crianças africanas ou com sobrepeso.</p>
+                    <p><strong>Fisiopatologia:</strong> O desenvolvimento natural apresenta mudanças biomecânicas pelas tensões da marcha inicial nas cartilagens de crescimento (fises).</p>
+                    <p><strong>Sinais e Sintomas:</strong> Evolução fisiológica: RN ao Lactente (Geno Varo fisiológico, pernas arqueadas até 15°); 18-24 meses (Alinhamento neutro); 3 a 4 anos (Pico do Geno Valgo, joelhos para dentro); 7 a 8 anos (Corrige para o valgismo leve adulto de 7°).</p>
+                    <p><strong>Diagnóstico (Critérios/Imagem):</strong> Clínico na fase fisiológica. Sinais de Alerta (solicitar RX Panorâmico MI): assimetria de membros, evolução atípica para a idade ou baixa estatura (investigar Raquitismo ou Blount).</p>
+                    <p><strong>Diagnóstico Diferencial:</strong> Raquitismo metabólico, displasias esqueléticas, sequela de fraturas fiseais.</p>
+                </div>
+
+                <h3>2.2 O Quadril da Criança e do Adolescente</h3>
+                <div class="grid2">
+                    <div class="card card-green">
+                        <span class="badge badge-green">Recém-nascido e Lactente</span>
+                        <h4>DDQ (Displasia do Desenv. do Quadril)</h4>
+                        <p><strong>Epidemiologia:</strong> Mais prevalente no sexo feminino. Fatores de risco: primeira gestação, apresentação pélvica e oligoidrâmnio.</p>
+                        <p><strong>Fisiopatologia:</strong> Frouxidão capsular aliada a um acetábulo subdesenvolvido (raso), gerando instabilidade mecânica intermitente ou luxação fixa.</p>
+                        <p><strong>Sinais e Sintomas:</strong> Assimetria de pregas glúteas, Sinal de Galeazzi (joelhos desnivelados). A criança geralmente não apresenta dor precoce.</p>
+                        <p><strong>Diagnóstico (Critérios/Imagem):</strong> Clínico: Manobra de <strong>Ortolani</strong> (ressalto de redução) e <strong>Barlow</strong> (luxação provocativa). USG padrão-ouro antes dos 6 meses; Radiografia de Bacia após os 6 meses.</p>
+                        <p><strong>Diagnóstico Diferencial:</strong> Luxação teratológica (Artrogripose), deficiência femoral focal proximal.</p>
+                    </div>
+                    <div class="card card-amber">
+                        <span class="badge badge-amber">Crianças (4 a 8 anos)</span>
+                        <h4>Doença de Legg-Calvé-Perthes</h4>
+                        <p><strong>Epidemiologia:</strong> Predomina em meninos (4 a 8 anos). Acometimento bilateral ocorre em cerca de 10 a 20% dos casos.</p>
+                        <p><strong>Fisiopatologia:</strong> Síndrome idiopática com interrupção isquêmica da vascularização da epífise proximal do fêmur, levando à necrose avascular, colapso estrutural e posterior remodelação.</p>
+                        <p><strong>Sinais e Sintomas:</strong> Início insidioso de claudicação e dor no quadril/joelho que piora ao esforço. Limitação clínica marcante da <strong>abdução e rotação interna</strong>.</p>
+                        <p><strong>Diagnóstico (Critérios/Imagem):</strong> RX mostra esclerose, fragmentação ou colapso capital (Grupos de Herring). Cintilografia ou RM evidenciam falha de perfusão precoce.</p>
+                        <p><strong>Diagnóstico Diferencial:</strong> Sinovite transitória do quadril, displasia epifisária múltipla, artrite séptica indolente.</p>
+                    </div>
+                    <div class="card card-red">
+                        <span class="badge badge-red">Adolescentes (11 a 15 anos)</span>
+                        <h4>Epifisiólise Proximal Femoral</h4>
+                        <p><strong>Epidemiologia:</strong> Incidência maior em meninos, tipicamente durante o estirão de crescimento. Forte associação com sobrepeso/obesidade e distúrbios endócrinos.</p>
+                        <p><strong>Fisiopatologia:</strong> Afrouxamento da placa de crescimento sob carga, causando um escorregamento da epífise posterior e inferiormente em relação ao colo femoral.</p>
+                        <p><strong>Sinais e Sintomas:</strong> Dor na coxa ou face medial do joelho, claudicação progressiva e atitude do membro em <strong>rotação externa obrigatória</strong>.</p>
+                        <p><strong>Diagnóstico (Critérios/Imagem):</strong> <strong>Sinal de Drehmann:</strong> flexão passiva do quadril forçadamente leva à rotação externa. RX em posição de "rã" (Lowenstein) revela o desvio da Linha de Klein.</p>
+                        <p><strong>Diagnóstico Diferencial:</strong> Arrancamento apofisário da pelve, fratura de estresse do colo femoral.</p>
+                    </div>
+                </div>
+
+                <h3>2.3 Pé Torto Congênito (PTC)</h3>
+                <div class="card">
+                    <p><strong>Epidemiologia:</strong> Incidência aproximada de 1 a 2 por 1.000 nascidos. Mais frequente no sexo masculino, bilateral em quase 50% dos pacientes.</p>
+                    <p><strong>Fisiopatologia:</strong> Malformação idiopática envolvendo alterações de colágeno, contratura ligamentar e subluxação das articulações do retropé e mediopé (talo-calcâneo-navicular).</p>
+                    <p><strong>Sinais e Sintomas:</strong> Deformidade rígida e complexa evidente ao nascimento. Panturrilha hipotrófica.</p>
+                    <p><strong>Diagnóstico (Critérios/Imagem):</strong> O diagnóstico é clínico e morfológico imediato, baseando-se no mnemônico de deformidade <strong>CAVE</strong>: Cavo, Aduto, Varo e Equino. Imagens são pouco utilizadas na fase aguda inicial.</p>
+                    <p><strong>Diagnóstico Diferencial:</strong> Pé posicional (flexível e redutível), pé torto sindrômico (mielomeningocele), pé metatarsovaro simples.</p>
+                </div>
+
+                <h3>2.4 Escoliose Idiopática do Adolescente (EIA)</h3>
+                <div class="card card-blue">
+                    <p><strong>Epidemiologia:</strong> Representa 80-90% das escolioses pediátricas. Curvas progressivas (>20°) são 7 vezes mais comuns em meninas na fase peripuberal.</p>
+                    <p><strong>Fisiopatologia:</strong> Deformidade tridimensional idiopática do eixo axial da coluna (flexão lateral no plano coronal acompanhada de rotação vertebral e hipocifose).</p>
+                    <p><strong>Sinais e Sintomas:</strong> Indolor na maioria das vezes. O paciente apresenta assimetria no alinhamento dos ombros, escápulas aladas ou desnível pélvico.</p>
+                    <p><strong>Diagnóstico (Critérios/Imagem):</strong> Triagem com <strong>Teste de Adams</strong> (flexão anterior revela a gibosidade costal indicando rotação). Diagnóstico radiográfico padrão-ouro: RX Panorâmico medindo o <strong>Ângulo de Cobb > 10 graus</strong>.</p>
+                    <p><strong>Diagnóstico Diferencial:</strong> Escoliose congênita (vértebra em cunha), escoliose neuromuscular, escoliose por diferença de comprimento dos membros (atitude escoliótica).</p>
+                </div>
+
+                <h3>2.5 Peculiaridades das Fraturas na Infância</h3>
+                <div class="grid2">
+                    <div class="card">
+                        <span class="badge badge-purple">Deformação Plástica</span>
+                        <p>Devido à maior elasticidade e menor mineralização, os ossos infantis podem sofrer deformação permanente encurvada (flexão além do limite elástico) sem fratura cortical completa, não se recuperando sozinhos.</p>
+                    </div>
+                    <div class="card">
+                        <span class="badge badge-purple">Fratura em Galho Verde</span>
+                        <p>O osso se "dobra" e rompe apenas um córtex (lado da tensão), enquanto o córtex oposto (compressão) e o periósteo espesso permanecem íntegros, garantindo melhor estabilidade intrínseca.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====================================================================== -->
+            <!-- MÓDULO 3 — Osteometabólico (Clínica)                                    -->
+            <!-- ====================================================================== -->
+            <div id="page-meta" class="page">
+                <h2>Módulo 3 — Doenças Osteometabólicas e Degenerativas</h2>
+                <p class="page-sub">Osteoporose, Doença de Paget, Osteoartrite e Manifestações Sistêmicas</p>
+
+                <h3>3.1 Osteoporose Senil e Pós-Menopausa</h3>
+                <div class="card card-blue">
+                    <p><strong>Epidemiologia:</strong> Doença osteometabólica mais prevalente no mundo, atingindo massivamente mulheres na fase de pós-menopausa.</p>
+                    <p><strong>Fisiopatologia:</strong> A queda abrupta do estrogênio remove a inibição natural sobre os osteoclastos. Ocorre aumento drástico da reabsorção óssea, destruindo a microarquitetura trabecular.</p>
+                    <p><strong>Sinais e Sintomas:</strong> Doença silenciosa e indolor. A manifestação se dá por cifose progressiva (perda de estatura) e por fraturas de fragilidade (locais clássicos: colo do fêmur, rádio distal/punho e corpos vertebrais).</p>
+                    <p><strong>Diagnóstico (Critérios/Imagem):</strong> Padrão-ouro é a <strong>Densitometria Óssea</strong>. Classificação da OMS: Normal (≥ -1 DP), Osteopenia (entre -1 e -2,5 DP), Osteoporose (≤ -2,5 DP). Rastreio laboratorial exclui causas secundárias.</p>
+                    <p><strong>Diagnóstico Diferencial:</strong> Osteomalácia, hiperparatireoidismo, mieloma múltiplo.</p>
+                </div>
+
+                <h3>3.2 Doença de Paget (Osteíte Deformante)</h3>
+                <div class="card card-amber">
+                    <p><strong>Epidemiologia:</strong> Segunda patologia osteometabólica mais comum, predominantemente em pacientes acima de 40-50 anos de descendência europeia.</p>
+                    <p><strong>Fisiopatologia:</strong> Ocorre um turnover ósseo focal acelerado e anárquico. Os osteoclastos reabsorvem em alta velocidade, e os osteoblastos formam um tecido desorganizado, hipervascular e quebradiço (osso "em mosaico").</p>
+                    <p><strong>Sinais e Sintomas:</strong> Geralmente assintomática, mas pode causar dor profunda, arqueamento de membros longos, aumento do volume craniano e complicações graves como perda auditiva neurossensorial e risco vital de transformação em <strong>Osteossarcoma</strong>.</p>
+                    <p><strong>Diagnóstico (Critérios/Imagem):</strong> Achado laboratorial marcante é a elevação isolada e acentuada da <strong>Fosfatase Alcalina</strong> sérica. RX revela áreas osteolíticas em "chama de vela" evoluindo para espessamento cortical e esclerose algodoada.</p>
+                    <p><strong>Diagnóstico Diferencial:</strong> Metástases osteoblásticas (ex: próstata), displasia fibrosa.</p>
+                </div>
+
+                <h3>3.3 Osteoartrite (Artrose/Gonartrose e Coxartrose)</h3>
+                <div class="card">
+                    <p><strong>Epidemiologia:</strong> Maior causa global de incapacidade musculoesquelética no idoso. Fortemente associada ao envelhecimento e fator modificável da obesidade.</p>
+                    <p><strong>Fisiopatologia:</strong> Doença degenerativa de toda a articulação. Iniciada por falha de reparo, cursa com degradação progressiva e irreversível da cartilagem hialina articular, seguida de esclerose do osso subcondral exposto.</p>
+                    <p><strong>Sinais e Sintomas:</strong> <strong>Dor mecânica clássica</strong> (piora com carga e esforço, alivia no repouso). Apresenta crepitação audível, perda de mobilidade e claudicação. A rigidez matinal ocorre, mas difere das inflamatórias por durar tipicamente <strong>&lt; 30 minutos</strong>.</p>
+                    <p><strong>Diagnóstico (Critérios/Imagem):</strong> Clínico. Os 4 Sinais Radiográficos cardinais (raio-x com carga) são: 1. Diminuição assimétrica do espaço articular; 2. Esclerose subcondral; 3. Formação de geodos (cistos); 4. Osteófitos marginais ("bicos de papagaio").</p>
+                    <p><strong>Diagnóstico Diferencial:</strong> Artrite reumatoide, gota, necrose avascular articular primária.</p>
+                </div>
+
+                <div class="card card-blue">
+                    <h4>Osteoartrite de Joelho (Gonartrose)</h4>
+                    <p><strong>Epidemiologia:</strong> Forma mais comum de osteoartrite. Acomete principalmente idosos, com pico após os 50 anos, sendo mais prevalente em mulheres. Fatores de risco incluem obesidade, histórico de trauma articular (meniscal/ligamentar), genética e sobrecarga mecânica crônica.</p>
+                    <p><strong>Fisiopatologia:</strong> Degeneração progressiva da cartilagem articular, com alterações no osso subcondral (esclerose e formação de cistos), sinóvia (inflamação reativa), ligamentos e musculatura periarticular. O reparo insuficiente frente ao estresse mecânico leva à falência da homeostase articular.</p>
+                    <p><strong>Sinais e Sintomas:</strong> Dor de caráter mecânico (piora com atividade e carga, melhora com repouso), rigidez matinal de curta duração (<30 minutos), crepitação articular (estalos), edema intermitente (derrame articular), limitação da amplitude de movimento e claudicação. Em casos avançados, pode haver instabilidade e deformidade em varo ou valgo.</p>
+                    <p><strong>Diagnóstico (Critérios/Imagem):</strong> <strong>Exames:</strong> Clínico-radiológico. Radiografia com carga (AP e perfil) evidencia os sinais cardinais: osteófitos marginais, estreitamento assimétrico do espaço articular, esclerose subcondral e cistos (geodos). A ressonância magnética é útil para avaliar lesões associadas (meniscos, ligamentos) em casos atípicos. Não há marcadores laboratoriais específicos.</p>
+                    <p><strong>Diagnóstico Diferencial:</strong> Artrite reumatoide (rigidez matinal prolongada e erosões), artrite séptica (quadro agudo com sinais flogísticos), meniscopatia (bloqueio e estalidos específicos), osteonecrose, e doenças microcristalinas (gota, pseudogota).</p>
+                </div>
+
+                <div class="card card-purple">
+                    <h4>Osteoartrite de Quadril (Coxartrose)</h4>
+                    <p><strong>Epidemiologia:</strong> Prevalência crescente com a idade, afetando cerca de 10% da população acima de 60 anos. É uma das principais causas de incapacidade e indicação de artroplastia total do quadril.</p>
+                    <p><strong>Fisiopatologia:</strong> Degeneração da cartilagem da articulação coxofemoral, frequentemente associada a fatores mecânicos como displasia do desenvolvimento, impacto femoroacetabular, sequelas de Legg-Calvé-Perthes ou epifisiólise, além da sobrecarga pelo peso.</p>
+                    <p><strong>Sinais e Sintomas:</strong> Dor na virilha ou na face anterior da coxa, que pode irradiar para o joelho. Rigidez matinal (<30 minutos), claudicação, limitação da rotação interna (primeiro movimento perdido) e da abdução. O teste de Trendelenburg pode ser positivo.</p>
+                    <p><strong>Diagnóstico (Critérios/Imagem):</strong> <strong>Imagem:</strong> Radiografia AP e Perfil (projeção de Lauenstein) mostram estreitamento do espaço articular, esclerose subcondral, osteófitos e cistos. A tomografia e a ressonância magnética podem ser úteis para avaliação pré-operatória.</p>
+                    <p><strong>Diagnóstico Diferencial:</strong> Bursite trocantérica (dor lateral), lombalgia com irradiação para a coxa, necrose avascular da cabeça femoral, e artrite de outras etiologias (reumatoide, séptica).</p>
+                </div>
+
+                <h3>3.4 Manifestações Musculoesqueléticas de Doenças Sistêmicas</h3>
+                <div class="grid2">
+                    <div class="card card-red">
+                        <span class="badge badge-red">Anemia Falciforme</span>
+                        <p><strong>Epidemiologia/Fisiopatologia:</strong> Herança autossômica, gera hemácias falciformes. Ocorre vaso-oclusão e isquemia/infarto no interior do osso (medula hiperplásica).</p>
+                        <p><strong>Sinais/Sintomas:</strong> Crises dolorosas isquêmicas extremas. Em crianças menores de 4 anos, o inchaço agudo de mãos e pés (<strong>Dactilite</strong>) é clássico.</p>
+                        <p><strong>Diagnóstico/Critérios:</strong> Suspeita vital é diferenciar crise vaso-oclusiva de <strong>osteomielite bacteriana</strong>. Pacientes falcêmicos têm alta incidência de infecção por <strong><em>Salmonella</em></strong>. Hemoculturas e RM precoce são cruciais.</p>
+                        <p><strong>Diagnóstico Diferencial:</strong> Osteomielite estafilocócica padrão, leucemia aguda infantil.</p>
+                    </div>
+                    <div class="card card-red">
+                        <span class="badge badge-red">Artrite Reumatoide (AR)</span>
+                        <p><strong>Epidemiologia/Fisiopatologia:</strong> Doença sistêmica autoimune. Predomina em mulheres. Hiperplasia do tecido sinovial (pannus inflamatório) que invade e corrói ativamente a cartilagem e o osso justarticular.</p>
+                        <p><strong>Sinais/Sintomas:</strong> Poliartrite <strong>simétrica</strong> que envolve periferia (mãos e punhos), poupando interfalangeanas distais. Rigidez matinal invalidante e duradoura (<strong>&gt; 1 hora</strong>). Gera deformidades grotescas em fases tardias.</p>
+                        <p><strong>Diagnóstico/Critérios:</strong> Fator Reumatoide e anti-CCP plasmáticos associados a provas de atividade inflamatória (PCR/VHS) e erosões marginais vistas no RX.</p>
+                        <p><strong>Diagnóstico Diferencial:</strong> Osteoartrite de mãos, Artrite Psoriásica.</p>
+                    </div>
+                    <div class="card card-blue">
+                        <span class="badge badge-blue">Diabetes Mellitus (Pé Diabético)</span>
+                        <p><strong>Epidemiologia/Fisiopatologia:</strong> Complicação devastadora da hiperglicemia de longo prazo. Gera neuropatia periférica distal ("em bota") com perda da sensibilidade dolorosa protetora aliada a déficits vasculares periféricos.</p>
+                        <p><strong>Sinais/Sintomas:</strong> O paciente perde a sensibilidade, machuca o pé repetidamente sem perceber. Ocorre desabamento do arco plantar (<strong>Artropatia de Charcot</strong>) e formação de úlceras insensíveis profundas plantares.</p>
+                        <p><strong>Diagnóstico/Critérios:</strong> Avaliação clínica neurológica contínua com monofilamento. RX evidencia ossos destruídos e luxados na neuroartropatia de Charcot.</p>
+                        <p><strong>Diagnóstico Diferencial:</strong> Osteomielite crônica, Doença Arterial Obstrutiva Periférica isquêmica pura.</p>
+                    </div>
+                    <div class="card card-blue">
+                        <span class="badge badge-blue">Lúpus Eritematoso Sistêmico</span>
+                        <p><strong>Epidemiologia/Fisiopatologia:</strong> Autoimune sistêmica (mulheres jovens), mediada por autoanticorpos (imunocomplexos) que circulam e afetam a homeostase articular.</p>
+                        <p><strong>Sinais/Sintomas:</strong> Ocorre artralgia/artrite em 95% dos pacientes. A artrite do Lúpus é classicamente <strong>migratória, simétrica e não-erosiva</strong>.</p>
+                        <p><strong>Diagnóstico/Critérios:</strong> Painel imunológico (FAN, anti-DNA, anti-Sm) e quadro clínico sistêmico. Radiografias demonstram articulações dolorosas sem a erosão óssea destrutiva vista na AR. Ocorre a Artropatia de Jaccoud (deformidades redutíveis por frouxidão tendínea).</p>
+                        <p><strong>Diagnóstico Diferencial:</strong> Artrite Reumatoide (erosiva), Síndrome de Sjögren, Febre Reumática.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====================================================================== -->
+            <!-- MÓDULO 4 — TRATAMENTO: Fundamentos                                       -->
+            <!-- ====================================================================== -->
+            <div id="page-trat-fund" class="page">
+                <h2>Módulo 4 — Tratamento: Fundamentos e Traumatologia</h2>
+                <p class="page-sub">Condutas terapêuticas completas em fraturas, traumas pélvicos e síndromes compressivas.</p>
+
+                <h3>4.1 Abordagem Geral das Fraturas</h3>
+                <div class="card">
+                    <h4><span class="badge tx-cons">Farmacológico &amp; Conservador</span></h4>
+                    <p>Indicado em fraturas incompletas, sem desvios, pediátricas ou sem instabilidade. O suporte farmacológico inicial baseia-se em analgesia aguda (AINEs e opióides fracos). O tratamento mecânico baseia-se na redução fechada, imobilização com gesso/talas e posterior reabilitação fisioterápica.</p>
+
+                    <h4 style="margin-top:1rem"><span class="badge tx-cir">Intervenção Cirúrgica</span></h4>
+                    <p>Mandatório em fraturas expostas, intra-articulares com desvio, lesões com comprometimento vasculonervoso, fraturas do colo do fêmur, não consolidação e fraturas patológicas. Consiste na redução (aberta/fechada) e fixação interna (placas, parafusos, hastes) ou externa.</p>
+
+                    <h4 style="margin-top:1rem"><span class="badge tx-prog">Prognóstico &amp; Evolução</span></h4>
+                    <p>Em geral favorável com o alinhamento correto. Complicações possíveis incluem pseudoartrose (falha de consolidação > 6 meses), consolidação viciosa (deformidade residual) e infecção (osteomielite, mais comum em fraturas expostas e tratamentos cirúrgicos).</p>
+                </div>
+
+                <h3>4.2 Entorse de Tornozelo e Lesões Ligamentares</h3>
+                <div class="card">
+                    <p>Lesão mais comum, acometendo tipicamente o Ligamento Talofibular Anterior (LTFA) por mecanismo de inversão e flexão plantar.</p>
+                    <h4><span class="badge tx-cons">Farmacológico &amp; Conservador</span></h4>
+                    <p>É o tratamento indicado na imensa maioria dos casos. Farmacologicamente utilizam-se AINEs (ex: ibuprofeno, diclofenaco) e analgésicos para controle álgico e inflamatório na fase aguda. Envolve o protocolo RICE (Repouso, Gelo, Compressão e Elevação), proteção com órteses (1 a 3 semanas) e reabilitação proprioceptiva (4 a 8 semanas).</p>
+                    <h4><span class="badge tx-cir">Intervenção Cirúrgica</span></h4>
+                    <p>Reservado exclusivamente para quadros de instabilidade crônica com falha fisioterápica. Resultados cirúrgicos a longo prazo apresentam eficácia funcional equivalente ao conservador bem executado.</p>
+                    <h4><span class="badge tx-prog">Prognóstico &amp; Evolução</span></h4>
+                    <p>Cerca de 55% dos pacientes não procuram tratamento, o que é prejudicial. Até 42% dos casos podem evoluir com sintomas residuais, dor persistente ("bone bruise") ou frouxidão articular crônica após 6 meses da lesão.</p>
+                </div>
+
+                <h3>4.3 Trauma de Pelve</h3>
+                <div class="card">
+                    <p>Fraturas graves decorrentes de alta energia. A "Compressão Anteroposterior" (Livro Aberto) possui alto risco de rompimento do plexo venoso pré-sacral.</p>
+                    <h4><span class="badge tx-cons">Farmacológico &amp; Conservador</span></h4>
+                    <p>Fraturas Estáveis (ex: ramos púbicos isolados). Uso de profilaxia para TVP (heparina de baixo peso molecular), analgesia vigorosa, repouso relativo e mobilização conforme tolerância.</p>
+                    <h4><span class="badge tx-cir">Intervenção Cirúrgica (Emergência)</span></h4>
+                    <p>Fraturas Instáveis: Foco inicial em controle de danos (ATLS). Farmacologicamente administra-se <strong>Ácido Tranexâmico</strong> precocemente e transfusão maciça. Mecanicamente, usa-se a cinta pélvica (<em>Pelvic Binder</em>). Cirurgicamente, indica-se fixação externa emergencial, empacotamento pré-peritoneal (packing) ou angioembolização para estancar o sangramento. Fixação interna definitiva posterior.</p>
+                    <h4><span class="badge tx-prog">Prognóstico &amp; Evolução</span></h4>
+                    <p>Fraturas instáveis carregam altíssimo risco de choque hipovolêmico fatal, morbidade prolongada e sequelas permanentes urogenitais e sexuais.</p>
+                </div>
+
+                <h3>4.4 Síndromes Compressivas e Tendinopatias</h3>
+                <div class="grid2">
+                    <div class="card">
+                        <h4>Síndrome do Túnel do Carpo (N. Mediano)</h4>
+                        <p><span class="badge tx-cons">Farmacológico/Cons:</span> AINEs orais (benefício limitado), <strong>infiltração local de corticoides</strong> e uso de órtese noturna em posição neutra.</p>
+                        <p><span class="badge tx-cir">Cirúrgico:</span> Liberação (secção) do retináculo dos flexores. Indicado em atrofia tenar, déficit motor ou falha clínica.</p>
+                        <p><span class="badge tx-prog">Prognóstico:</span> Excelente se tratado precocemente. Se houver atrofia tenar grave instalada, o déficit motor torna-se irreversível.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Neuropatia Cubital (N. Ulnar)</h4>
+                        <p><span class="badge tx-cons">Farmacológico/Cons:</span> AINEs para controle inflamatório local, educação postural para evitar flexão prolongada do cotovelo e uso de órtese noturna.</p>
+                        <p><span class="badge tx-cir">Cirúrgico:</span> Descompressão <em>in situ</em> ou transposição (subcutânea/submuscular) do nervo ulnar.</p>
+                        <p><span class="badge tx-prog">Prognóstico:</span> 50% dos casos têm boa resolução apenas com manejo conservador. Fraqueza e "mão em garra" indicam dano axonal grave.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Tenossinovite de De Quervain</h4>
+                        <p><span class="badge tx-cons">Farmacológico/Cons:</span> AINEs orais, repouso, fisioterapia e órtese de polegar. <strong>Infiltração com corticoide intrabainha tem altíssima taxa de cura (cura resolutiva).</strong></p>
+                        <p><span class="badge tx-cir">Cirúrgico:</span> Abertura/liberação do 1º compartimento extensor (teto) apenas nos casos refratários à infiltração.</p>
+                        <p><span class="badge tx-prog">Prognóstico:</span> Muito favorável. Cuidado no ato cirúrgico para não lesionar o ramo sensitivo do nervo radial.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Epicondilite Lateral / Medial</h4>
+                        <p><span class="badge tx-cons">Farmacológico/Cons:</span> Repouso, gelo, AINEs orais/tópicos, fisioterapia e brace tensor. A infiltração de corticoide traz alívio rápido, mas aumenta o risco de ruptura tendínea e recidiva a longo prazo.</p>
+                        <p><span class="badge tx-cir">Cirúrgico:</span> Apenas se falha após 6 a 12 meses. Ressecção do tecido angiofibroblástico degenerativo (ex: cirurgia de Nirschl modificada).</p>
+                        <p><span class="badge tx-prog">Prognóstico:</span> Doença autolimitada. Tratamento conservador é bem-sucedido em 95% dos casos em alguns meses.</p>
+                    </div>
+                </div>
+
+                <h3>4.5 Lombalgia e Ciatalgia</h3>
+                <div class="card">
+                    <p><span class="badge tx-cons">Farmacológico &amp; Conservador</span><br>
+                    O repouso absoluto prolongado é contraindicado. O esquema farmacológico para dor aguda varia pela intensidade: Analgésicos simples (dipirona, paracetamol), AINEs (ibuprofeno, diclofenaco), relaxantes musculares (ciclobenzaprina) ou opióides fracos. Para lombalgia crônica ou dor de padrão neuropático (ciatalgia severa), indica-se o uso de anticonvulsivantes (pregabalina, gabapentina) e antidepressivos duais/tricíclicos (duloxetina, amitriptilina). A fisioterapia (fortalecimento de core, reeducação postural) e Terapia Cognitivo-Comportamental são fundamentais.</p>
+
+                    <p style="margin-top:1rem;"><span class="badge tx-cir">Intervenção Cirúrgica</span><br>
+                    Apenas 1% a 2% dos pacientes necessitam de cirurgia (descompressão, laminectomia, artrodese). Indica-se cirurgia urgentemente na presença de Bandeiras Vermelhas (Déficit Neurológico Progressivo, Síndrome da Cauda Equina) ou eletivamente na dor intratável refratária ao tratamento farmacológico e de reabilitação otimizado.</p>
+
+                    <p style="margin-top:1rem;"><span class="badge tx-prog">Prognóstico &amp; Evolução</span><br>
+                    Altamente favorável na fase aguda. De 80% a 85% dos casos resolvem espontaneamente em até 14 dias. Contudo, Fatores Psicossociais ("Yellow Flags" - insatisfação laboral, somatização, depressão, cinesiofobia, ganhos secundários trabalhistas) são os maiores e piores preditores de cronificação da dor e incapacidade a longo prazo.</p>
+                </div>
+            </div>
+
+            <!-- ====================================================================== -->
+            <!-- MÓDULO 5 — TRATAMENTO: Pediatria                                        -->
+            <!-- ====================================================================== -->
+            <div id="page-trat-ped" class="page">
+                <h2>Módulo 5 — Tratamento: Ortopedia Pediátrica</h2>
+                <p class="page-sub">Tratamento e progressão prognóstica das afecções da infância e adolescência.</p>
+
+                <h3>5.1 Deformidades Angulares (Geno Varo e Valgo)</h3>
+                <div class="card">
+                    <h4><span class="badge tx-cons">Farmacológico &amp; Conservador (Fisiológico)</span></h4>
+                    <p>O desenvolvimento natural apresenta Geno Varo (nascimento a 1-2 anos) evoluindo para Geno Valgo (3 a 4 anos) e correção até a fase adulta (7-8 anos). A conduta é puramente a <strong>observação e tranquilização da família</strong>. Farmacologicamente, se houver Raquitismo associado, deve-se realizar <strong>suplementação agressiva de Vitamina D e Cálcio</strong> e tratar a doença de base. Não há evidência para uso de órteses em desvios fisiológicos.</p>
+                    <h4><span class="badge tx-cir">Intervenção Cirúrgica (Patológico)</span></h4>
+                    <p>No geno varo patológico grave (Doença de Blount, Raquitismo refratário), indica-se inicialmente tratamento com órteses (&lt;3 anos). Cirurgias corretivas (osteotomia da tíbia com supercorreção em valgo) são indicadas entre os 4 e 5 anos. No Geno Valgo adolescente patológico (distância intermaleolar >10cm), utiliza-se a <strong>epifisiodese</strong> (bloqueio do crescimento) medial percutânea ou aberta guiada pela tabela de Green-Anderson.</p>
+                    <h4><span class="badge tx-prog">Prognóstico &amp; Evolução</span></h4>
+                    <p>Os desvios fisiológicos resolvem espontaneamente em quase 100% dos casos. Desvios patológicos não tratados (como Doença de Blount) evoluem inexoravelmente para incongruência articular, dor crônica e artrose precoce na vida adulta.</p>
+                </div>
+
+                <h3>5.2 O Quadril Pediátrico</h3>
+                <div class="grid2">
+                    <div class="card">
+                        <h4>DDQ (Displasia do Desenv. do Quadril)</h4>
+                        <p><span class="badge tx-cons">Farmacológico/Cons:</span> O tratamento mecânico conservador é o padrão ouro na fase precoce (0 a 6 meses): Redução e estabilização utilizando o <strong>Suspensório de Pavlik</strong>.</p>
+                        <p><span class="badge tx-cir">Cirúrgico:</span> Em diagnósticos tardios (6 a 18 meses) ou falha do Pavlik, realiza-se redução fechada sob anestesia geral mantida por Gesso Pélvico-Podálico (8 a 12 semanas) ou cirurgia de redução aberta associada a osteotomias pélvicas/femorais para aprofundar o acetábulo.</p>
+                        <p><span class="badge tx-prog">Prognóstico:</span> Se tratado precocemente resulta em quadril anatomicamente normal em 90%. O diagnóstico tardio eleva drasticamente o risco de sequelas irreversíveis, claudicação crônica e necrose avascular iatrogênica.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Legg-Calvé-Perthes</h4>
+                        <p><span class="badge tx-cons">Farmacológico/Cons:</span> O objetivo é "conter" a cabeça femoral no acetábulo. Farmacologicamente, usam-se <strong>AINEs e analgésicos</strong> para alívio da sinovite inflamatória reativa. Indica-se alívio de carga estrito (repouso, muletas) e restrição rigorosa de impacto. Uso de aparelho gessado tipo <em>broomstick</em> para recuperar a abdução.</p>
+                        <p><span class="badge tx-cir">Cirúrgico:</span> Centralização articular (osteotomias femorais/pélvicas). Deve ser executada precocemente, antes da fase de fragmentação/colapso e deformação irreparável da cabeça do fêmur.</p>
+                        <p><span class="badge tx-prog">Prognóstico:</span> Acima de 50% dos casos de bom prognóstico (Grupo A de Herring) evoluem com revascularização natural sem grandes intervenções. O mau prognóstico (idade mais avançada, colapso total do pilar lateral) gera artrose degenerativa severa do adulto jovem.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Epifisiólise Proximal Femoral</h4>
+                        <p><span class="badge tx-cir">Intervenção Cirúrgica:</span> O tratamento conservador é <strong>proibido</strong>. A indicação de fixação <em>in situ</em> (pinagem com parafuso através da fise para estancar o escorregamento) é considerada urgência ortopédica para prevenir a progressão do dano vascular. Em casos de deslizamento muito severo, realizam-se osteotomias de realinhamento.</p>
+                        <p><span class="badge tx-prog">Prognóstico:</span> Muito reservado se houver instabilidade ou trauma cirúrgico. As duas principais e mais temidas complicações são a <strong>Necrose Avascular da Cabeça Femoral</strong> e a <strong>Condrólise</strong> (destruição acelerada da cartilagem articular, levando a fusão articular).</p>
+                    </div>
+                </div>
+
+                <h3>5.3 Pé Torto Congênito (PTC)</h3>
+                <div class="card">
+                    <p><span class="badge tx-cons">Farmacológico &amp; Conservador:</span> O padrão-ouro incontestável é o <strong>Método de Ponseti</strong>. Baseia-se em manipulações seriadas suaves e trocas de gessos cruropodálicos (joelho fletido) a cada semana. A deformidade é corrigida estritamente na ordem do mnemônico CAVE: <strong>C</strong>avo, <strong>A</strong>duto, <strong>V</strong>aro, <strong>E</strong>quino.</p>
+                    <p><span class="badge tx-cir">Intervenção Cirúrgica:</span> A quase totalidade dos casos (70-80%) exige um procedimento minimamente invasivo final: a <strong>tenotomia percutânea do tendão do calcâneo</strong> para resolver o equinismo rígido residual. Em casos recalcitrantes tardios ou sindrômicos (artrogripose/mielomeningocele), indica-se a liberação cirúrgica medial de partes moles aberta (Operação de Codivilla) ou artrodeses modelantes.</p>
+                    <p><span class="badge tx-prog">Prognóstico &amp; Evolução:</span> O Método de Ponseti possui taxa de eficácia e correção que alcança os 90% a 95%. O calcanhar de Aquiles do tratamento é a falta de adesão familiar: o uso da órtese de abdução (Denis-Browne) deve ser mantido 23h/dia nos primeiros meses e no período noturno <strong>até os 3 ou 4 anos de idade</strong>; sem a órtese, a recidiva da deformidade é quase certa.</p>
+                </div>
+
+                <h3>5.4 Escoliose Idiopática do Adolescente (EIA)</h3>
+                <div class="card">
+                    <p><span class="badge tx-cons">Farmacológico &amp; Conservador:</span> Não há tratamento medicamentoso para escoliose idiopática. Para curvas leves/moderadas (20° a 40°) em pacientes com grande potencial de crescimento ósseo (Risser baixo, antes da menarca), o manejo baseia-se na fisioterapia específica e uso contínuo de <strong>coletes ortopédicos</strong> (ex: Boston, Milwaukee) por até 23h/dia para frear a progressão angular.</p>
+                    <p><span class="badge tx-cir">Intervenção Cirúrgica:</span> Indicada em curvas severas (> 45°-50°) ou com rápida progressão a despeito do colete. Realiza-se a artrodese corretiva instrumentada (fusão vertebral com hastes e parafusos) para corrigir o alinhamento tridimensional, tratar a dor lombar e prevenir danos à capacidade pulmonar.</p>
+                    <p><span class="badge tx-prog">Prognóstico &amp; Evolução:</span> O maior risco de progressão deformante acelerada ocorre durante o estirão da puberdade (podendo ultrapassar 70% a 90% em curvas maiores de 20-30° com alta imaturidade). Quando o paciente atinge a maturidade óssea completa (Risser 4-5), curvas abaixo de 30° raramente progridem. Curvas severas negligenciadas acarretam severa restrição pulmonar (cor pulmonale), dor incapacitante e danos psicológicos/estéticos.</p>
+                </div>
+            </div>
+
+            <!-- ====================================================================== -->
+            <!-- MÓDULO 6 — TRATAMENTO: Osteometabólico                                  -->
+            <!-- ====================================================================== -->
+            <div id="page-trat-meta" class="page">
+                <h2>Módulo 6 — Tratamento: Osteometabólico, Degenerativo e Sistêmico</h2>
+                <p class="page-sub">Farmacologia profunda, intervenções e prognósticos das patologias articulares e sistêmicas.</p>
+
+                <h3>6.1 Osteoporose Senil e Pós-Menopausa</h3>
+                <div class="card">
+                    <h4><span class="badge tx-cons">Farmacológico &amp; Conservador (Primeira Linha)</span></h4>
+                    <p>O tratamento deve ser multimodal. Estilo de vida: cessação de tabagismo e prática de exercícios físicos de resistência e carga (essenciais para estímulo mecanotransdutivo via osteócitos).<br>
+                    <strong>Suporte Nutricional:</strong> Ingestão de Cálcio (dietético ou suplementar até 1.200 mg/dia) e reposição de Vitamina D se deficiente (ex: 50.000 UI/semana em dose de ataque por 8 semanas, manutenção com 1.000-2.000 UI diários).<br>
+                    <strong>Terapia Medicamentosa Específica:</strong> Os antirreabsortivos <strong>Bisfosfonatos</strong> (Alendronato oral, Ácido Zoledrônico IV, Risedronato) são a classe fundamental para inibir a ação osteoclástica (induzem apoptose). Agentes anabólicos ósseos como a <strong>Teriparatida</strong> (análogo do PTH) são utilizados para formação óssea rápida em casos graves.</p>
+
+                    <h4 style="margin-top:1rem"><span class="badge tx-prog">Prognóstico e Mortalidade</span></h4>
+                    <p>O uso da Teriparatida possui limite máximo de segurança de 24 meses, após os quais eleva-se o risco teórico de desenvolvimento de osteossarcoma. Em relação à doença, as fraturas osteoporóticas acarretam grave perda funcional. O quadro mais preocupante e letal é a fratura do quadril (colo do fêmur) no idoso: a taxa de mortalidade no primeiro ano após o evento atinge absurdos 20% em mulheres e até 50% em homens, decorrente das complicações do acamamento (pneumonia, TEP, sepse).</p>
+                </div>
+
+                <h3>6.2 Doença de Paget (Osteíte Deformante)</h3>
+                <div class="card">
+                    <h4><span class="badge tx-cons">Farmacológico &amp; Conservador</span></h4>
+                    <p>O foco é a supressão do <em>turnover</em> acelerado dos osteoclastos anômalos e o alívio profundo da dor óssea mecânica (onde se utilizam AINEs potentes e analgésicos). As drogas de escolha absolutas são os <strong>Bisfosfonatos Potentes</strong> (especialmente o Ácido Zoledrônico em dose única anual intravenosa, que garante remissão rápida, reduzindo a Fosfatase Alcalina sérica em até 96%). A Calcitonina atua como terapia secundária de resgate em pacientes com grave insuficiência renal em que os bisfosfonatos são contraindicados.</p>
+
+                    <h4 style="margin-top:1rem"><span class="badge tx-prog">Prognóstico &amp; Evolução</span></h4>
+                    <p>O distúrbio da arquitetura na maioria das vezes (na forma monostótica leve) é assintomático e não requer intervenção medicamentosa. Contudo, na doença ativa ou poliostótica, a remodelação desorganizada acarreta sérios riscos: <strong>perda auditiva neurossensorial irreversível</strong> (por compressão inflamatória da cóclea e ossículos temporais), insuficiência cardíaca de alto débito (shunts vasculares ósseos), fraturas patológicas transversas e, no pior cenário, ocorre a <strong>perigosa transformação maligna em osteossarcoma</strong> secundário, que tem prognóstico sombrio.</p>
+                </div>
+
+                <h3>6.3 Osteoartrite (Artrose / Gonartrose / Coxartrose)</h3>
+                <div class="card">
+                    <h4><span class="badge tx-cons">Farmacológico &amp; Conservador</span></h4>
+                    <p>Sendo degenerativa e crônica, não possui cura medicamentosa; o objetivo é controle sintomático e retardo do dano. Fundamental: perda de peso drástica e fortalecimento muscular biomecânico (fisioterapia).<br>
+                    <strong>Farmacologia Oral:</strong> Analgésicos simples (paracetamol, dipirona), AINEs orais (ibuprofeno, inibidores da COX-2 como celecoxibe, com uso por tempo limitado devido ao risco gastrointestinal/renal) e agentes de ação lenta / condroprotetores (glicosamina/condroitina, diacereína - eficácia controversa na literatura).<br>
+                    <strong>Terapia Intra-articular:</strong> Infiltrações diretas com corticosteróides potentes para alívio rápido de crises agudas inflamatórias (sinovites), e <strong>viscossuplementação</strong> (injeção de Ácido Hialurônico) para lubrificação e estímulo reológico cartilaginoso.</p>
+
+                    <h4 style="margin-top:1rem"><span class="badge tx-cir">Intervenção Cirúrgica</span></h4>
+                    <p>A cirurgia substitutiva radical, a <strong>Artroplastia Total</strong> (prótese metálica de joelho ou quadril), é a indicação definitiva, segura e resolutiva em caso de falha completa das terapias clínicas associada à dor intratável que priva o paciente das atividades diárias e locomoção. Osteotomias corretivas de eixo (varizantes/valgizantes) podem adiar a prótese em pacientes mais jovens com artrose de compartimento único.</p>
+
+                    <h4 style="margin-top:1rem"><span class="badge tx-prog">Prognóstico &amp; Evolução</span></h4>
+                    <p>Doença inevitavelmente progressiva. Se não manejada a sobrecarga de peso, a cartilagem se esgota, levando ao atrito "osso-no-osso", causando dor crônica intratável, derrame articular incapacitante, rigidez (matinal característica <strong>&lt; 30 minutos</strong>) e atrofia muscular por desuso severa.</p>
+                </div>
+
+                <h3>6.4 Fraturas do Fêmur Proximal no Idoso</h3>
+                <div class="grid2">
+                    <div class="card">
+                        <h4>Colo Femoral (Intracapsular)</h4>
+                        <p><span class="badge tx-cons">Farmacológico:</span> Analgesia intravenosa forte (opióides, bloqueio de nervo fascia ilíaca) e <strong>profilaxia tromboembólica urgente</strong> no pré e pós-operatório. O tratamento é essencialmente cirúrgico.</p>
+                        <p><span class="badge tx-cir">Cirúrgico:</span> Devido à interrupção e morte do frágil suprimento das artérias retinaculares cervicais, tentar fixar o osso tem alto risco de falha no idoso. Indica-se diretamente a <strong>Hemiartroplastia ou Artroplastia Total do Quadril</strong> (substituir a cabeça por prótese). Jovens ou fraturas sem desvio podem ser fixadas com parafusos canulados.</p>
+                        <p><span class="badge tx-prog">Prognóstico:</span> Alto índice de complicação temida: <strong>Necrose Avascular da Cabeça Femoral</strong> e Pseudoartrose. Recuperação rápida da deambulação com a prótese.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Intertrocantérica (Extracapsular)</h4>
+                        <p><span class="badge tx-cons">Farmacológico:</span> O sangramento local é volumoso; necessita monitorização hemodinâmica, ressuscitação volêmica (possível transfusão sanguínea pré-op) e analgesia com opióides. Profilaxia TVP indispensável.</p>
+                        <p><span class="badge tx-cir">Cirúrgico:</span> Sítio extra-articular riquíssimo em osso esponjoso e vascularização. O objetivo <em>não</em> é substituir, mas alinhar e fixar de forma estável. Os dispositivos padrão-ouro são as hastes intramedulares cefalomedulares curtas (<strong>PFN</strong>) e o sistema de parafuso de compressão dinâmica (<strong>DHS</strong>).</p>
+                        <p><span class="badge tx-prog">Prognóstico:</span> Altíssima e favorável taxa de consolidação biológica óssea. No entanto, pelo sangramento agudo, o paciente idoso descompensa facilmente clinicamente na fase aguda.</p>
+                    </div>
+                </div>
+
+                <h3>6.5 Reumatologia e Patologias Sistêmicas</h3>
+                <div class="grid2">
+                    <div class="card">
+                        <h4>Artrite Reumatoide (AR)</h4>
+                        <p><span class="badge tx-cons">Farmacológico:</span> Base da pirâmide é o controle imunossupressor agressivo precoce: DMARDs (<strong>Metotrexato</strong> como droga âncora, Cloroquina, Sulfassalazina) para barrar a progressão da destruição. Corticoides orais/IA (baixa dose) e AINEs atuam apenas como "ponte" sintomática aguda. Em falha ou refratariedade, indica-se a revolução das <strong>Terapias Imunobiológicas</strong> (Anti-TNF como Infliximabe, Etanercepte ou Rituximabe).</p>
+                        <p><span class="badge tx-cir">Cirúrgico:</span> Tenossinovectomias precoces previnem rupturas tendíneas. Artrodeses de punho ou Artroplastias são usadas no estágio final mutilante.</p>
+                        <p><span class="badge tx-prog">Prognóstico:</span> Patologia de curso crônico, autoimune, sem cura. Apresenta rigidez matinal <strong>prolongada (> 1 hora)</strong>. Pode cursar com erosão irreversível do osso subcondral, deformidades gravíssimas e clássicas nas mãos (dedo em pescoço de cisne, em botoeira, desvio ulnar), incapacitando o paciente gravemente.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Lúpus Eritematoso Sistêmico (LES)</h4>
+                        <p><span class="badge tx-cons">Farmacológico:</span> O medicamento basal para todo paciente lúpico (independentemente do órgão afetado) é o antimalárico <strong>Hidroxicloroquina</strong> (age reduzindo a atividade inflamatória generalizada e previne surtos agressivos). Crises severas e atividade articular aguda exigem Corticoterapia (prednisona ou pulsoterapia com metilprednisolona). Imunossupressores (Metotrexato, Azatioprina) são usados se falha terapêutica.</p>
+                        <p><span class="badge tx-prog">Prognóstico:</span> Acomete articulações em até 95% dos pacientes na fase inicial. Diferente da AR, no Lúpus a artrite é tipicamente <strong>não erosiva, simétrica e migratória</strong>. Deformidades de Jaccoud podem ocorrer por frouxidão tendínea severa (reversíveis passivamente), mas não por erosão óssea destrutiva.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Anemia Falciforme</h4>
+                        <p><span class="badge tx-cons">Farmacológico:</span> Não existe medicamento que reverta o infarto medular (crise vaso-oclusiva dolorosa). O protocolo baseia-se em suportar o paciente: <strong>Hidratação venosa rigorosa, Oxigênio sob cateter e Analgesia de forte potência</strong> (opióides como morfina/tramadol). A complicação com osteomielite (frequentemente com achado clássico do agente <strong><em>Salmonella</em></strong>) requer prolongada antibioticoterapia intravenosa guiada por cultura cirúrgica.</p>
+                        <p><span class="badge tx-cir">Cirúrgico:</span> Em casos de infartos ósseos isquêmicos do quadril (osteonecrose), procede-se com descompressão simples do colo do fêmur ou, na fase de colapso, prótese de quadril. Osteomielite refratária com sequestro ósseo exige desbridamento cirúrgico amplo (limpeza).</p>
+                        <p><span class="badge tx-prog">Prognóstico:</span> Oclusões microvasculares causam crises álgicas crônicas angustiantes. Em crianças, a <strong>Dactilite</strong> (Síndrome Mão-Pé, inchaço doloroso de dígitos) é clássica. Maior propensão global a desenvolver fraturas patológicas, retardo de crescimento e osteopenia severa.</p>
+                    </div>
+                    <div class="card">
+                        <h4>Fascite Plantar e Esporão do Calcâneo</h4>
+                        <p><span class="badge tx-cons">Farmacológico:</span> O alívio a curto prazo é alcançado com AINEs orais. Infiltração local de Corticosteroides no calcanhar melhora radicalmente a dor inicial, mas exige severa cautela (não usar repetidamente) pelo <strong>altíssimo risco de ruptura iatrogênica da fáscia plantar</strong> e atrofia do coxim gorduroso plantar. Mecanicamente, usa-se massagem com gelo (criocinesioterapia), <strong>alongamento passivo matinal obrigatório</strong> do tendão de Aquiles e da fáscia, órteses de silicone sob o calcanhar e redução de impacto de corrida.</p>
+                        <p><span class="badge tx-cir">Cirúrgico:</span> Muito raro. A fasciotomia plantar (liberação percutânea ou endoscópica) é reservada estritamente após 6 a 12 meses de total refratariedade ao tratamento conservador intensivo.</p>
+                        <p><span class="badge tx-prog">Prognóstico:</span> A doença não tem natureza inflamatória primária (é uma degeneração angiofibroblástica / fasciospatia microtraumática). Felizmente, é uma condição benigna e autolimitada: <strong>Cerca de 80% a 90% dos pacientes atingem cura assintomática completa em até 12 meses</strong>, independentemente da instituição agressiva de tratamento.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ====================================================================== -->
+            <!-- SEMIOLOGIA                                                             -->
+            <!-- ====================================================================== -->
+            <div id="page-semi" class="page">
+                <h2>Semiologia Ortopédica e Manobras Clínicas</h2>
+                <p class="page-sub">Guia completo de testes diagnósticos por segmento anatômico</p>
+
+                <div class="search-wrap">
+                    <input id="search-box" type="text" placeholder="Buscar manobra, segmento, patologia ou estrutura avaliada..." oninput="filterManobras(this.value)" autocomplete="off">
+                </div>
+
+                <div id="manobra-list">
+
+                    <h3>Coluna Cervical e Torácica</h3>
+                    <div class="grid2">
+                        <div class="manobra" data-tags="cervical spurling compressao hernia discal raiz nervosa">
+                            <div class="manobra-title">Manobra de Spurling</div>
+                            <div class="manobra-how">Compressão axial da cabeça pelo examinador com pescoço em discreta flexão, extensão e inclinação.</div>
+                            <div class="manobra-pos">Positivo: dor cervical irradiada para o membro superior.</div>
+                            <div class="manobra-cond">Condição: Síndromes compressivas radiculares (hérnia discal cervical).</div>
+                        </div>
+                        <div class="manobra" data-tags="cervical lhermitte choque rigidez nuca meningite">
+                            <div class="manobra-title">Teste de Lhermitte</div>
+                            <div class="manobra-how">Paciente sentado, realiza-se flexão forçada da coluna cervical.</div>
+                            <div class="manobra-pos">Positivo: sensação de choque elétrico descendo pela coluna/membros.</div>
+                            <div class="manobra-cond">Condição: Irritação meníngea, mielopatia cervical, esclerose múltipla.</div>
+                        </div>
+                        <div class="manobra" data-tags="cervical distracao tracao alivio dor">
+                            <div class="manobra-title">Teste da Distração</div>
+                            <div class="manobra-how">Tração da cabeça para cima, segurando no mento e occipício.</div>
+                            <div class="manobra-pos">Positivo: Alívio da dor radicular cervical.</div>
+                            <div class="manobra-cond">Condição: Confirma radiculopatia compressiva.</div>
+                        </div>
+                        <div class="manobra" data-tags="toracica adams escoliose gibosidade rotacao vertebral">
+                            <div class="manobra-title">Teste de Adams</div>
+                            <div class="manobra-how">Paciente em ortostatismo, flexão anterior do tronco com as mãos unidas tentando alcançar o solo.</div>
+                            <div class="manobra-pos">Positivo: Assimetria do tronco / Gibosidade costal evidente.</div>
+                            <div class="manobra-cond">Condição: Rastreio para Escoliose Idiopática (avalia a rotação vertebral estrutural).</div>
+                        </div>
+                    </div>
+
+                    <h3>Coluna Lombar e Bacia</h3>
+                    <div class="grid2">
+                        <div class="manobra" data-tags="lombar lasegue ciatica raiz l5 s1 nervo ciatico hernia">
+                            <div class="manobra-title">Manobra de Lasègue</div>
+                            <div class="manobra-how">Decúbito Dorsal (DD). Elevação do membro inferior retificado pelo examinador.</div>
+                            <div class="manobra-pos">Positivo: Dor irradiada no trajeto do ciático entre 30° e 70°.</div>
+                            <div class="manobra-cond">Condição: Compressão radicular L5-S1 (Hérnia discal). Dor só na coxa posterior é falso-positivo (encurtamento isquiotibial).</div>
+                        </div>
+                        <div class="manobra" data-tags="lombar bragard ciatica lasegue tensionamento">
+                            <div class="manobra-title">Sinal de Bragard</div>
+                            <div class="manobra-how">No limite da dor do Lasègue, diminui-se levemente a elevação e realiza-se a dorsiflexão forçada do pé.</div>
+                            <div class="manobra-pos">Positivo: Retorno ou exacerbação da dor ciática.</div>
+                            <div class="manobra-cond">Condição: Confirma componente radicular/neuropático.</div>
+                        </div>
+                        <div class="manobra" data-tags="lombar patrick fabere sacroiliaca coxofemoral quatro">
+                            <div class="manobra-title">Teste de Patrick / FABERE</div>
+                            <div class="manobra-how">DD. Tornozelo sobre o joelho oposto (em "4"). Empurrar joelho flexionado para baixo estabilizando a pelve contralateral.</div>
+                            <div class="manobra-pos">Positivo: Dor na articulação sacroilíaca (posterior) ou coxofemoral (anterior).</div>
+                            <div class="manobra-cond">Condição: Patologia sacroilíaca ou artrose de quadril.</div>
+                        </div>
+                        <div class="manobra" data-tags="lombar thomas quadril contratura flexao iliopsoas">
+                            <div class="manobra-title">Teste de Thomas</div>
+                            <div class="manobra-how">DD. Flexão máxima de ambos os quadris no tórax para retificar a lordose lombar. O paciente então estende um dos membros.</div>
+                            <div class="manobra-pos">Positivo: Membro avaliado não estende completamente (permanece fletido no ar).</div>
+                            <div class="manobra-cond">Condição: Contratura em flexão do quadril (músculo iliopsoas).</div>
+                        </div>
+                    </div>
+
+                    <h3>Ombro</h3>
+                    <div class="grid2">
+                        <div class="manobra" data-tags="ombro jobe supraespinhal lata vazia manguito rotador">
+                            <div class="manobra-title">Teste de Jobe ("Lata Vazia")</div>
+                            <div class="manobra-how">Braços abduzidos a 90° no plano da escápula, rotação interna (polegares para baixo). Resistir à pressão para baixo do examinador.</div>
+                            <div class="manobra-pos">Positivo: Dor ou incapacidade de resistir à força.</div>
+                            <div class="manobra-cond">Condição: Lesão ou inflamação do tendão Supraespinhal.</div>
+                        </div>
+                        <div class="manobra" data-tags="ombro neer impacto subacromial elevacao">
+                            <div class="manobra-title">Teste de Neer</div>
+                            <div class="manobra-how">Elevação (flexão anterior) passiva forçada e rápida do membro superior enquanto estabiliza a escápula.</div>
+                            <div class="manobra-pos">Positivo: Dor ou defesa durante a elevação extrema.</div>
+                            <div class="manobra-cond">Condição: Síndrome do Impacto Subacromial.</div>
+                        </div>
+                        <div class="manobra" data-tags="ombro hawkins impacto subacromial rotacao interna">
+                            <div class="manobra-title">Teste de Hawkins-Kennedy</div>
+                            <div class="manobra-how">Ombro e cotovelo fletidos a 90°. Examinador realiza a rotação interna passiva forçada do ombro.</div>
+                            <div class="manobra-pos">Positivo: Dor anterior ou lateral no ombro.</div>
+                            <div class="manobra-cond">Condição: Impacto Subacromial (impacto do tubérculo maior sob o ligamento coracoacromial).</div>
+                        </div>
+                        <div class="manobra" data-tags="ombro gerber lift off subescapular">
+                            <div class="manobra-title">Teste de Gerber (Lift-off)</div>
+                            <div class="manobra-how">Paciente coloca o dorso da mão nas costas (lombar) e tenta afastá-la ativamente contra resistência.</div>
+                            <div class="manobra-pos">Positivo: Incapacidade de afastar a mão ou presença de dor/fraqueza.</div>
+                            <div class="manobra-cond">Condição: Insuficiência/lesão do tendão Subescapular.</div>
+                        </div>
+                    </div>
+
+                    <h3>Cotovelo, Punho e Mão</h3>
+                    <div class="grid2">
+                        <div class="manobra" data-tags="cotovelo cozen epicondilite lateral tenista">
+                            <div class="manobra-title">Teste de Cozen</div>
+                            <div class="manobra-how">Cotovelo fletido a 90°, antebraço pronado. Paciente faz a extensão ativa do punho contra a resistência do examinador.</div>
+                            <div class="manobra-pos">Positivo: Dor aguda na região do epicôndilo lateral do úmero.</div>
+                            <div class="manobra-cond">Condição: Epicondilite Lateral ("Cotovelo de Tenista").</div>
+                        </div>
+                        <div class="manobra" data-tags="punho phalen mediano tunel do carpo formigamento">
+                            <div class="manobra-title">Teste de Phalen</div>
+                            <div class="manobra-how">Flexão máxima dos punhos (juntando o dorso das mãos) mantida por 60 segundos.</div>
+                            <div class="manobra-pos">Positivo: Dor ou parestesia irradiando para o território do nervo mediano.</div>
+                            <div class="manobra-cond">Condição: Síndrome do Túnel do Carpo.</div>
+                        </div>
+                        <div class="manobra" data-tags="punho finkelstein de quervain abdutor extensor polegar">
+                            <div class="manobra-title">Teste de Finkelstein</div>
+                            <div class="manobra-how">Paciente fecha a mão abrigando o polegar com os outros dedos. O examinador realiza um desvio ulnar passivo brusco.</div>
+                            <div class="manobra-pos">Positivo: Dor aguda e lancinante sobre o processo estiloide radial.</div>
+                            <div class="manobra-cond">Condição: Tenossinovite Estenosante de De Quervain.</div>
+                        </div>
+                        <div class="manobra" data-tags="mao froment nervo ulnar adutor polegar pinça">
+                            <div class="manobra-title">Sinal de Froment</div>
+                            <div class="manobra-how">Paciente segura uma folha de papel entre o polegar e a lateral do indicador. O examinador tenta puxar a folha.</div>
+                            <div class="manobra-pos">Positivo: A folha escapa ou o paciente flete excessivamente a interfalangeana do polegar compensando com o flexor longo.</div>
+                            <div class="manobra-cond">Condição: Paralisia do Adutor do polegar por lesão do Nervo Ulnar.</div>
+                        </div>
+                    </div>
+
+                    <h3>Joelho e Tornozelo</h3>
+                    <div class="grid2">
+                        <div class="manobra" data-tags="joelho lachman cruzado anterior lca gaveta">
+                            <div class="manobra-title">Teste de Lachman</div>
+                            <div class="manobra-how">DD. Joelho fletido a 20-30°. Uma mão estabiliza o fêmur distal e a outra traciona a tíbia proximal anteriormente.</div>
+                            <div class="manobra-pos">Positivo: Deslizamento anterior excessivo da tíbia com fim de curso macio (soft endpoint).</div>
+                            <div class="manobra-cond">Condição: Ruptura do Ligamento Cruzado Anterior (LCA). É o teste mais sensível e específico.</div>
+                        </div>
+                        <div class="manobra" data-tags="joelho mcmurray menisco medial lateral rotacao">
+                            <div class="manobra-title">Teste de McMurray</div>
+                            <div class="manobra-how">DD. Joelho em flexão máxima. Comprime a interlinha e estende o joelho enquanto realiza rotação externa do pé (menisco medial) ou rotação interna (menisco lateral).</div>
+                            <div class="manobra-pos">Positivo: Dor na interlinha associada a um estalido ou ressalto articular.</div>
+                            <div class="manobra-cond">Condição: Ruptura de Menisco.</div>
+                        </div>
+                        <div class="manobra" data-tags="tornozelo thompson aquileu tendao calcaneo panturrilha">
+                            <div class="manobra-title">Teste de Thompson</div>
+                            <div class="manobra-how">Decúbito Ventral (DV). Pés para fora da maca. O examinador comprime o ventre da panturrilha manualmente.</div>
+                            <div class="manobra-pos">Positivo: Ausência do movimento reflexo de flexão plantar do pé.</div>
+                            <div class="manobra-cond">Condição: Ruptura completa do Tendão de Aquiles (calcâneo).</div>
+                        </div>
+                        <div class="manobra" data-tags="tornozelo gaveta anterior ltfa instabilidade">
+                            <div class="manobra-title">Teste da Gaveta Anterior (Tornozelo)</div>
+                            <div class="manobra-how">Uma mão estabiliza a tíbia distal e a outra puxa o calcâneo para a frente com o pé em ligeira flexão plantar (20°).</div>
+                            <div class="manobra-pos">Positivo: Translação anterior excessiva do tálus sob a fíbula/tíbia (> 5mm).</div>
+                            <div class="manobra-cond">Condição: Insuficiência ligamentar lateral (principalmente o Ligamento Talofibular Anterior - LTFA).</div>
+                        </div>
+                    </div>
+
+                </div></div>
+
+            <!-- ====================================================================== -->
+            <!-- QUIZ                                                                   -->
+            <!-- ====================================================================== -->
+            <div id="page-quiz" class="page">
+                <h2>Quiz de Revisão Interativo</h2>
+                <p class="page-sub">Teste seus conhecimentos gerais em Ortopedia e Traumatologia</p>
+
+                <div class="quiz-header">
+                    <div class="quiz-stat"><div class="quiz-stat-num" id="q-score">0</div><div class="quiz-stat-label">Acertos</div></div>
+                    <div class="quiz-stat"><div class="quiz-stat-num" id="q-total">0</div><div class="quiz-stat-label">Respondidas</div></div>
+                    <div class="quiz-stat"><div class="quiz-stat-num" id="q-pct">—</div><div class="quiz-stat-label">Aproveitamento</div></div>
+                    <div style="flex:1;display:flex;align-items:flex-end;justify-content:flex-end"><button class="btn btn-primary" onclick="restartQuiz()">Reiniciar</button></div>
+                </div>
+
+                <p class="quiz-progress" id="q-progress" style="font-weight:600;color:var(--blue);">Questão 1 de 20</p>
+
+                <div class="card" style="padding:2rem;">
+                    <div class="quiz-q" id="q-text"></div>
+                    <div id="q-opts"></div>
+                    <div class="quiz-actions"><button class="btn btn-primary hidden" id="q-next" onclick="nextQuestion()">Próxima questão ➔</button></div>
+                </div>
+            </div>
+
+            <!-- ====================================================================== -->
+            <!-- FLASHCARDS                                                              -->
+            <!-- ====================================================================== -->
+            <div id="page-flash" class="page">
+                <h2>Flashcards Rápidos</h2>
+                <p class="page-sub">Clique em qualquer card para revelar o diagnóstico, sinal ou conceito associado</p>
+                <div id="flash-list"></div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // ── NAVEGAÇÃO ──
+        function showPage(id, btn) {
+            document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+            document.querySelectorAll('.nav-item').forEach(function(b) { b.classList.remove('active'); });
+            document.getElementById('page-' + id).classList.add('active');
+            if (btn) btn.classList.add('active');
+            if (id === 'quiz') initQuiz();
+            if (id === 'flash') initFlash();
+            if (window.innerWidth <= 768) toggleSidebar();
+        }
+
+        function toggleSidebar() {
+            var s = document.getElementById('sidebar');
+            var o = document.getElementById('overlay');
+            s.classList.toggle('open');
+            o.classList.toggle('open');
+        }
+
+        // ── FILTRO MANOBRAS ──
+        function filterManobras(val) {
+            var v = val.toLowerCase().trim();
+            document.querySelectorAll('#manobra-list .manobra').forEach(function(m) {
+                var tags = (m.dataset.tags || '').toLowerCase();
+                var title = m.querySelector('.manobra-title').textContent.toLowerCase();
+                var desc = m.querySelector('.manobra-cond').textContent.toLowerCase();
+                m.style.display = (v === '' || tags.includes(v) || title.includes(v) || desc.includes(v)) ? '' :
+                'none';
+            });
+        }
+
+        // ── QUIZ ──
+        var questions = [
+            { q: "No Método de Ponseti para tratamento do Pé Torto Congênito (PTC), qual a sequência correta e mandatória de correção das deformidades?", opts: ["Equino ➔ Varo ➔ Aduto ➔ Cavo", "Cavo ➔ Aduto ➔ Varo ➔ Equino", "Varo ➔ Cavo ➔ Aduto ➔ Equino", "Aduto ➔ Equino ➔ Varo ➔ Cavo"], a: 1 },
+            { q: "Qual teste clínico é considerado Patognomônico para o diagnóstico da Epifisiólise Proximal Femoral?", opts: ["Sinal de Galeazzi", "Manobra de Ortolani", "Sinal de Drehmann", "Teste de Trendelenburg"], a: 2 },
+            { q: "Qual a diferença chave entre as manobras de Ortolani e Barlow na DDQ?", opts: ["Ortolani LUXA o quadril já reduzido; Barlow REDUZ o quadril luxado", "Ortolani REDUZ o quadril luxado (ressalto/clunk); Barlow LUXA o quadril já reduzido (provocativa)", "Ambas são testes provocativos de luxação em recém-nascidos", "Ortolani avalia assimetria dos joelhos; Barlow avalia instabilidade pélvica"], a: 1 },
+            { q: "De acordo com os critérios da OMS baseados em Densitometria Óssea, como se define a Osteoporose?", opts: ["T-score < -1,0 DP", "T-score entre -1 e -2,5 DP", "T-score ≤ -2,5 DP", "T-score < -3,5 DP com fratura prévia"], a: 2 },
+            { q: "Sobre as características clínicas para diferenciar Osteoartrite de Artrite Reumatoide, é CORRETO afirmar:", opts: ["A Osteoartrite causa dor inflamatória, que melhora com o esforço e piora ao repouso.", "A rigidez matinal na Osteoartrite costuma ser duradoura (> 1 hora).", "A Osteoartrite poupa as interfalangeanas distais (IPD).", "A Osteoartrite possui dor de caráter mecânico (piora ao esforço) e a rigidez matinal costuma durar menos de 30 minutos."], a: 3 },
+            { q: "Qual é o principal marcador bioquímico, tipicamente acentuado, empregado no diagnóstico e na monitorização da Doença de Paget (Osteíte Deformante)?", opts: ["Fosfatase Alcalina (FA) sérica", "Proteína C Reativa (PCR)", "Cálcio sérico ionizado", "Vitamina D (25-OH)"], a: 0 },
+            { q: "Em qual raiz nervosa há suspeita de compressão/irritação quando o paciente apresenta o Reflexo Aquileu abolido e dificuldade para caminhar na ponta dos pés?", opts: ["Raiz L3", "Raiz L4", "Raiz L5", "Raiz S1"], a: 3 },
+            { q: "As fraturas do colo do fêmur no idoso apresentam um altíssimo risco evolutivo para qual complicação em especial, devido à anatomia de seu suprimento sanguíneo?", opts: ["Consolidação viciosa imediata", "Necrose avascular da cabeça femoral e pseudoartrose", "Hemorragia retroperitoneal maciça", "Osteomielite crônica"], a: 1 },
+            { q: "A manobra de Lasègue é um teste consagrado em Ortopedia. Qual das opções representa uma avaliação verdadeiramente POSITIVA?", opts: ["Dor exclusivamente na musculatura lombar, sem irradiação.", "Dor referida na face posterior da coxa decorrente de isquiotibiais encurtados.", "Dor aguda com irradiação metamérica (no trajeto do ciático) evocada entre 30° e 70° de elevação.", "Abolição do reflexo patelar durante a elevação retificada da perna."], a: 2 },
+            { q: "O Teste de Thompson é o exame físico de escolha na suspeita de qual patologia?", opts: ["Ruptura do Ligamento Cruzado Anterior (LCA)", "Ruptura do Ligamento Talofibular Anterior (LTFA)", "Ruptura do Tendão Aquiliano (calcâneo)", "Fascite Plantar Crônica"], a: 2 },
+            { q: "Qual sinal semiológico indica a existência do Teste de Finkelstein positivo e qual doença ele diagnostica?", opts: ["Dor lancinante ao desvio ulnar com polegar abrigado — Tenossinovite Estenosante de De Quervain", "Dormência e formigamento à flexão palmar de 90° — Síndrome do Túnel do Carpo", "Dor ao estender ativamente o 3º dedo contra resistência — Epicondilite Lateral", "Ressalto e bloqueio digital doloroso à flexão do 1º dedo — Dedo em Gatilho"], a: 0 },
+            { q: "Paciente vítima de esmagamento pélvico apresenta fratura por Compressão Anteroposterior (Lesão em 'Livro Aberto'). Qual o principal risco imediato?", opts: ["Síndrome de Cauda Equina compressiva imediata", "Instabilidade hemodinâmica severa por sangramento do plexo venoso pré-sacral", "Necrose avascular bi-articular (quadril)", "Luxação do joelho homolateral por cisalhamento"], a: 1 },
+            { q: "O sinal clássico do Drop Arm Test (Teste da Queda do Braço), especialmente quando incapaz de aduzir suavemente, indica ruptura primária de qual músculo do manguito?", opts: ["Subescapular", "Infraespinhal", "Supraespinhal", "Redondo Menor"], a: 2 },
+            { q: "Criança de 6 anos chega ao PA com queixa de dor no quadril/coxa de início insidioso e claudicação. Ao exame, apresenta marcante limitação de rotação interna e de abdução. O diagnóstico mais provável é:", opts: ["Displasia do Desenvolvimento do Quadril (DDQ)", "Doença de Legg-Calvé-Perthes (DLCP)", "Epifisiólise Proximal Femoral (EPF)", "Osteoartrite juvenil de quadril"], a: 1 },
+            { q: "Em Radiologia Óssea Ortopédica, qual o princípio regido pela 'Regra de Ouro' (ou Regra dos Dois Planos)?", opts: ["Solicitar obrigatoriamente um escanograma e uma radiografia AP em todos os traumas.", "Todo segmento ósseo avaliado deve ser radiografado, pelo menos, em duas incidências ortogonais (AP e Perfil) para evitar sobreposição diagnóstica e avaliar planos espaciais.", "Não diagnosticar fraturas fechadas apenas pela TC, mantendo a radiografia como padrão-ouro absoluto em urgências.", "Avaliar radiograficamente sempre o membro acometido e o contralateral simultaneamente."], a: 1 },
+            { q: "Na avaliação das Síndromes Compressivas dos Membros Superiores, a parestesia em face ulnar do dedo anelar e dedo mínimo com déficit motor originando uma 'mão em garra' aponta para lesão de qual nervo?", opts: ["Nervo Mediano", "Nervo Radial", "Nervo Ulnar", "Nervo Musculocutâneo"], a: 2 },
+            { q: "No trauma de entorse de tornozelo, o mecanismo de inversão mais flexão plantar costuma lesar inicialmente qual ligamento do complexo lateral?", opts: ["Ligamento Calcaneofibular (LCF)", "Ligamento Talofibular Posterior (LTFP)", "Ligamento Deltóide", "Ligamento Talofibular Anterior (LTFA)"], a: 3 },
+            { q: "Dentre os sinais radiológicos da Osteoartrite, o que costuma aparecer precocemente nas bordas articulares promovendo alargamento ósseo?", opts: ["Afinamento e reabsorção trabecular", "Osteófitos (bicos de papagaio)", "Formação de cistos (geodos) massivos", "Hipertransparência metafisária"], a: 1 },
+            { q: "A Anemia Falciforme tem manifestações musculoesqueléticas severas. A infecção óssea mais prevalente em pacientes com as crises vaso-oclusivas possui frequentemente como agente a:", opts: ["E. Coli", "Streptococcus pneumoniae", "Salmonella (Osteomielite falciforme)", "Neisseria gonorrhoeae"], a: 2 },
+            { q: "Qual é o melhor teste em termos de Sensibilidade e Especificidade para avaliar a ruptura aguda do Ligamento Cruzado Anterior (LCA)?", opts: ["Teste de McMurray", "Teste da Gaveta Posterior", "Teste da Apreensão Patelar", "Teste de Lachman"], a: 3 }
+        ];
+
+        var qIdx = 0,
+            score = 0,
+            total = 0,
+            answered = false;
+
+        function initQuiz() {
+            qIdx = 0;
+            score = 0;
+            total = 0;
+            answered = false;
+            document.getElementById('q-score').textContent = '0';
+            document.getElementById('q-total').textContent = '0';
+            document.getElementById('q-pct').textContent = '—';
+            renderQ();
+        }
+
+        function restartQuiz() { initQuiz(); }
+
+        function renderQ() {
+            if (qIdx >= questions.length) { qIdx = 0; }
+            var q = questions[qIdx];
+            answered = false;
+            document.getElementById('q-text').textContent = (qIdx + 1) + ". " + q.q;
+            document.getElementById('q-progress').textContent = 'Questão ' + (qIdx + 1) + ' de ' + questions.length;
+            var html = '';
+            q.opts.forEach(function(o, i) {
+                html += '<button class="quiz-opt" onclick="answerQ(' + i + ')">' + o + '</button>';
+            });
+            document.getElementById('q-opts').innerHTML = html;
+            document.getElementById('q-next').classList.add('hidden');
+        }
+
+        function answerQ(i) {
+            if (answered) return;
+            answered = true;
+            total++;
+            var q = questions[qIdx];
+            var btns = document.querySelectorAll('.quiz-opt');
+            btns.forEach(function(b, idx) {
+                b.disabled = true;
+                if (idx === q.a) b.classList.add('correct');
+                else if (idx === i && i !== q.a) b.classList.add('wrong');
+            });
+            if (i === q.a) score++;
+            document.getElementById('q-score').textContent = score;
+            document.getElementById('q-total').textContent = total;
+            var pct = Math.round((score / total) * 100);
+            document.getElementById('q-pct').textContent = pct + '%';
+            document.getElementById('q-next').classList.remove('hidden');
+        }
+
+        function nextQuestion() {
+            qIdx = (qIdx + 1) % questions.length;
+            renderQ();
+        }
+
+        // ── FLASHCARDS ──
+        var flashcards = [
+            { q: "Qual a diferença entre Pseudoartrose e Consolidação Viciosa?", a: "<strong>Pseudoartrose:</strong> ausência total de consolidação após 6 meses (não forma calo ósseo → 'falsa articulação'). Requer cirurgia + enxerto.<br><strong>Consolidação viciosa:</strong> o osso consolida, mas em posição incorreta, gerando deformidade. Pode exigir osteotomia corretiva." },
+            { q: "Qual a diferença entre Anquilose e Artrodese?", a: "<strong>Anquilose:</strong> fusão/rigidez articular por processo PATOLÓGICO (ex: artrose severa, espondilite).<br><strong>Artrodese:</strong> fusão articular induzida CIRURGICAMENTE de forma intencional para eliminar dor e dar estabilidade." },
+            { q: "O que é a Fise e por que ela é clinicamente relevante?", a: "A Fise é a cartilagem de crescimento presente nos ossos imaturos, localizada entre a epífise e a metáfise.<br>É o ponto de maior vulnerabilidade nos ossos pediátricos: fraturas fiseais (Salter-Harris) podem comprometer o crescimento. A EPF ocorre por escorregamento da fise proximal do fêmur." },
+            { q: "Quais são os 4 'R' da regra de ouro do RX ortopédico?", a: "1. <strong>Dois Planos</strong>: AP + Perfil obrigatórios (evita sobreposição).<br>2. <strong>Duas Articulações</strong>: incluir articulação proximal e distal ao osso.<br>3. <strong>Dois Lados</strong>: membro contralateral para comparação (especialmente na pediatria).<br>4. <strong>Dois Tempos</strong>: RX pré e pós-redução/imobilização." },
+            { q: "Qual a diferença clínica entre LTFA, LCF e LTFP no tornozelo?", a: "<strong>LTFA</strong> (Talofibular Anterior): ligado por inversão + flexão plantar — lesão mais comum (1º a romper).<br><strong>LCF</strong> (Calcaneofibular): lesado em entorses mais graves.<br><strong>LTFP</strong> (Talofibular Posterior): raramente rompido, indica lesão gravíssima.<br>Mnemônico: de anterior para posterior = do mais ao menos lesado." },
+            { q: "Qual a diferença entre Hemiartroplastia e Artroplastia Total do Quadril?", a: "<strong>Hemiartroplastia:</strong> substitui apenas a cabeça femoral (componente femoral). Indicada no idoso com colo femoral e baixa atividade.<br><strong>Artroplastia Total:</strong> substitui cabeça femoral + acetábulo. Indicada em pacientes mais ativos ou com artrose associada do acetábulo." },
+            { q: "Cite as diferenças entre os nervos Mediano e Ulnar (lesão e sinal clínico).", a: "<strong>Mediano:</strong> sensitivo — 1°, 2°, 3° e metade radial do 4° dedo (palmar). Motor — pronação, oponência do polegar, flexores. Lesão → mão em bênção, Phalen e Tinel positivos (Túnel do Carpo).<br><strong>Ulnar:</strong> sensitivo — 5° e metade ulnar do 4° dedo. Motor — interósseos, adutor do polegar. Lesão → mão em garra (4°-5°), Froment positivo." },
+            { q: "Como diferenciar fratura de colo femoral da intertrocantérica clinicamente?", a: "<strong>Colo femoral (intracapsular):</strong> encurtamento e rotação externa LEVES. Alto risco de NAV (artérias retinaculares). Tratamento: prótese ou parafusos canulados.<br><strong>Intertrocantérica (extracapsular):</strong> rotação externa ACENTUADA (pé encosta no leito) + grande equimose. Consolidação favorável. Tratamento: PFN ou DHS." },
+            { q: "Como o Varo e o Valgo diferem em sua definição clássica na ortopedia?", a: "<strong>Varo:</strong> o vértice do desvio se <em>afasta</em> da linha mediana (ex: pernas arqueadas para fora).<br><strong>Valgo:</strong> o vértice se <em>aproxima</em> da linha mediana (ex: joelhos para dentro)." },
+            { q: "Quais os 4 Sinais Radiográficos (Cardinais) da Osteoartrite?", a: "1. Diminuição assimétrica do espaço articular<br>2. Esclerose subcondral<br>3. Formação de geodos (cistos)<br>4. Osteófitos marginais ('bicos de papagaio')" },
+            { q: "Qual a regra e o mnemônico de correção sequencial do Pé Torto Congênito (PTC)?", a: "Método de Ponseti, com correção guiada pelo mnemônico <strong>CAVE</strong>:<br>1º <strong>C</strong>avo<br>2º <strong>A</strong>duto<br>3º <strong>V</strong>aro<br>4º <strong>E</strong>quino (Geralmente via tenotomia do Aquiles)." },
+            { q: "Como o Teste de Lachman é superior ao Teste da Gaveta Anterior?", a: "O Lachman, feito em 20-30° de flexão, anula grande parte da estabilidade secundária dos meniscos e a tensão contrária dos isquiotibiais (causadores de falso-negativo na Gaveta), possuindo sensibilidade e especificidade significativamente maiores na fase aguda de lesão do LCA." },
+            { q: "Quais são as Bandeiras Amarelas (Yellow Flags) na Lombalgia?", a: "São preditores psicossociais de evolução para dor crônica e incapacidade. Envolvem: insatisfação no trabalho, litígios judiciais, depressão, hiper-somatização, crenças catastróficas e cinesiofobia (medo e recusa do movimento)." },
+            { q: "Cite a diferença clínica do posicionamento da perna entre Fratura de Colo Femoral vs. Intertrocantérica.", a: "<strong>Colo Femoral:</strong> O paciente apresenta apenas um leve encurtamento e rotação externa leve do membro.<br><strong>Intertrocantérica:</strong> Ocorre grande equimose/inchaço e uma rotação externa gravíssima (geralmente o bordo lateral do pé encosta no leito)." },
+            { q: "O que indica um Sinal de Froment positivo na avaliação da mão?", a: "Indica insuficiência/paralisia do músculo adutor do polegar devido à lesão ou compressão do <strong>Nervo Ulnar</strong>. O paciente compensa hiperfletindo a interfalangeana do polegar para tentar segurar o papel." },
+            { q: "Na semiologia infantil, o que representa o Sinal de Drehmann?", a: "Durante o exame em decúbito dorsal, ao flexionar passivamente o quadril afetado, o membro da criança assume obrigatoriamente (automático) uma rotação externa e abdução. É clássico de <strong>Epifisiólise Proximal Femoral</strong>." },
+            { q: "Paciente com fratura de pelve tem lesão em \"Livro Aberto\" (Compressão AP). O que isto acarreta clinicamente?", a: "Ocorre a ruptura/abertura grave da sínfise púbica e do assoalho pélvico, lesionando o plexo venoso pré-sacral e até as artérias ilíacas. Causa um choque hemorrágico gravíssimo. Requer estabilização imediata com lençol ou <em>Pelvic Binder</em>." },
+            { q: "Qual patologia do punho exige a realização da Manobra de Finkelstein e em quem é mais comum?", a: "Diagnostica a <strong>Tenossinovite de De Quervain</strong> (inflamação do APL e EPB no 1º compartimento). É absurdamente prevalente em mulheres puérperas e mães de recém-nascidos, devido aos movimentos constantes de carregamento e elevação." }
+        ];
+
+        function initFlash() {
+            var html = '';
+            flashcards.forEach(function(f) {
+                html += '<div class="flashcard" onclick="this.classList.toggle(\'open\')">' +
+                    '<div class="flashcard-q">' + f.q + '<span style="font-size:12px; color:var(--blue); flex-shrink:0;">revelar ▾</span></div>' +
+                    '<div class="flashcard-a">' + f.a + '</div>' +
+                    '</div>';
+            });
+            document.getElementById('flash-list').innerHTML = html;
+        }
+
+        // ── INICIALIZAÇÃO ──
+        document.addEventListener('DOMContentLoaded', function() {
+            var active = document.querySelector('.page.active');
+            if (active && active.id !== 'page-fund') {
+                active.classList.remove('active');
+                document.getElementById('page-fund').classList.add('active');
+            }
+            document.querySelectorAll('.nav-item').forEach(function(b) {
+                if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'fund'")) {
+                    b.classList.add('active');
+                } else {
+                    b.classList.remove('active');
+                }
+            });
+            initFlash();
+        });
+    </script>
+
+</body>
+</html>
